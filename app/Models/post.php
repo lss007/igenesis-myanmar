@@ -12,6 +12,6 @@ class post extends Model
         return $this->hasOne(Admin::class,'id','authorId');
       }
       public function Category(){
-        return $this->hasMany(Category::class,'id','catId');
+        return $this->hasOne(Category::class,'id','catId');
       }
 }

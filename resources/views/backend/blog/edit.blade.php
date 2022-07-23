@@ -57,7 +57,21 @@
                         @enderror
                       </div>
                     </div>
+                    
+                 
+                    <div class="col-12">
+                      <div class="form-floating">
           
+                        <!-- Quill Editor Full -->
+                   
+                        <div class="quill-editor-full">
+                          <p>Hello World!</p>
+                          <p>This is Quill <strong>full</strong> editor</p>
+                        </div>
+                        <!-- End Quill Editor Full -->
+                      </div>
+                    </div>
+                    
                
 
                     <input type="file" class="form-control"  name="image" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">

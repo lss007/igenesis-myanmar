@@ -13,8 +13,5 @@ class PostController extends Controller
 {
 
 
-  public function Logout(){
-  Auth::logout();
-  return redirect()->route('login')->with('success','User logout successfully');
-  }
+
 }

@@ -1,9 +1,9 @@
 <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>Admin</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>example</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
    
-      Designed by <a href="https://example.com/">Smarty</a>
+      Designed by <a href="https://example.com/">example</a>
     </div>
   </footer>

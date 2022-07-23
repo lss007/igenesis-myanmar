@@ -50,26 +50,9 @@
       </li>
 
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
+  
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('register')}}" target="_blank">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('login')}}" target="_blank">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
-        </a>
-      </li><!-- End Login Page Nav -->
 
   
 

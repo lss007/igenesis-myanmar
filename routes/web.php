@@ -24,6 +24,7 @@ use App\Http\Controllers\Backend\BlogController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
 Route::controller(FrontendController::class)->group(function () {
     Route::get('/', 'homepage')->name('front.homepage');
     // about_us
@@ -72,6 +73,8 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
 });
 
 Route::get('logout',[AdminController::class,'destroy'])->name('admin.logout')->middleware('auth:admin');
+
+
 Route::get('/logout/user', [AdminController::class,'Logout'])->name('user.logout');
 //  ============================= Start slider routes =======================
 Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'verified'
@@ -153,7 +156,15 @@ Route::get('/deleteblog/{id}','removeblog')->name('user.remove.blog');
     });
     });
 
+// Admin profile setting route  
+Route::prefix('profile')->group(function(){
+    Route::controller(AdminProfileController::class)->group(function () {
 
+    
+    
+    
+        });
+        });
 
 // ========== admin prefix ===========
     });

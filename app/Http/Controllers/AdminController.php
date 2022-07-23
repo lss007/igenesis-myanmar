@@ -119,6 +119,10 @@ class AdminController extends Controller
         Auth::logout();
         return redirect()->route('login')->with('success','User logout successfully');
         }
+
+
+        // admin profile update 
+
 }
 
  
