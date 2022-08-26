@@ -17,7 +17,7 @@
       <li class="nav-heading">Pages</li>
       <!-- End Profile Page Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
+        <a class="nav-link collapsed" href="#">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>

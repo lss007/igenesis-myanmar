@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Http\Controllers\PostController;
-use App\Models\post;
+use App\Models\BlogPost;
 
 class CategoryController extends Controller
 {
@@ -53,7 +53,6 @@ class CategoryController extends Controller
         public function deleteCategory($id){
             $deldata = Category::find($id);
             $deldata->delete();
-       
             return  redirect()->route('view.blog.category')->with('error', 'Category deleted sucessfull');
       
 
@@ -61,37 +60,37 @@ class CategoryController extends Controller
 
 
             // approvedpost
-            public function approvedpost($id){
-                $approved  =  post::find($id);
-                $approved->status = 1;
-                $approved->save();
-                return  redirect()->back()->with('sucess', 'User Blog Post Approved  ');
+                public function approvedpost($id){
+                    $approved  =  BlogPost::find($id);
+                    $approved->status = '1';
+                    $approved->save();
+                    return  redirect()->back()->with('sucess', 'User Blog Post Approved  ');
 
-    }
+                }
 
 
     // rejectedpost
-    public function rejectedpost($id){
-                $rejected  =  post::find($id);
-                $rejected->status = 0;
-                $rejected->save();
-                return  redirect()->back()->with('error', 'User Blog Post Rejected  ');
-                
-    }
+                public function rejectedpost($id){
+                    $rejected  =  BlogPost::find($id);
+                    $rejected->status = '0';
+                    $rejected->save();
+                    return  redirect()->back()->with('error', 'User Blog Post Rejected  ');
+
+                }
 
     // remove blog 
-    public function removeblog($id){
-        $getPost  =  post::find($id);
-        $old_image = $getPost->image;
-        // dd($old_image );
-        if(file_exists($old_image)){
-            // dd($old_image);
-            unlink($old_image);  
+            public function removeblog($id){
+                $getPost  =  BlogPost::find($id);
+                $old_image = $getPost->image;
+                // dd($old_image );
+                if(file_exists($old_image)){
+                // dd($old_image);
+                    unlink($old_image);  
             }
-    $deletePost =  post::find($id);
-    $deletePost->delete();
-    return  redirect()->back()->with('error', 'Blog Post Deleted  sucessfull');
+                    $deletePost =  BlogPost::find($id);
+                    $deletePost->delete();
+                    return  redirect()->back()->with('error', 'Blog Post Deleted  sucessfull');
 
 
-    }
+            }
 }

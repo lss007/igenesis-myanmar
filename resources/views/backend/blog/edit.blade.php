@@ -9,7 +9,7 @@
         <div class="row">
             <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">UPdate Blog post</h5>
+                  <h5 class="card-title">Update Blog Post</h5>
     
                   <!-- Floating Labels Form -->
                   <form class="row g-3"  action="{{route('user.update.post',$editBlogpost->id)}}" enctype="multipart/form-data" method="post">

@@ -11,7 +11,10 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+        <link rel="stylesheet" href="{{asset('build/assets/app.64728ec8.css')}}" /> 
+
+        <script type="module" src="{{asset('build/assets/app.192dac6b.js')}}"></script> 
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">

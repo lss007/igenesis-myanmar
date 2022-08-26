@@ -70,7 +70,7 @@
                       <button class="btn btn-primary w-100" type="submit">Login</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
+                      <p class="small mb-0">Don't have account? <a href="#">Create an account</a></p>
                       @if (Route::has('password.request'))
                       <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                           {{ __('Forgot your password?') }}

@@ -14,10 +14,12 @@ use Laravel\Fortify\Contracts\LogoutResponse;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Http\Requests\LoginRequest;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Actions\Fortify\AttemptToAuthenticate;
 use App\Actions\Fortify\RedirectIfTwoFactorAuthenticatable;
 use App\Http\Responses\LoginResponse;
+use App\Models\Admin;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -117,7 +119,44 @@ class AdminController extends Controller
 
     public function Logout(){
         Auth::logout();
+
         return redirect()->route('login')->with('success','User logout successfully');
+        }
+
+        // change password 
+        public function admin_change_password(){
+            $getpassword =  auth()->guard('admin')->user();
+            $getinfo =   Admin::find($getpassword->id);
+            return view('backend.password.changePassword',compact('getinfo'));
+        }
+
+        //password  update function 
+        public function admin_update_password(Request $request){
+            // dd($request->all());
+
+            $validateData = $request->validate([
+                'oldpassword' => 'required',
+                'password' => 'required|confirmed',
+                // 'new_confirm_password' => 'same:new_password',
+            ]);
+         
+            $getpassword =  auth()->guard('admin')->user();
+
+            $hashedpassword = $getpassword->password;
+
+            if (Hash::check($request->oldpassword,$hashedpassword)) {
+                $admin = Admin::find($getpassword->id);
+                $admin->password = Hash::make($request->password);
+                $admin->name = $request->name;
+                $admin->email = $request->email;
+                $admin->save();
+                Auth::logout();
+                return redirect()->route('admin.logout');
+            }else{
+        
+                return redirect()->back();
+            }
+        
         }
 }
 

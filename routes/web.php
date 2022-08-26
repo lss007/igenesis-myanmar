@@ -73,6 +73,14 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
 
 Route::get('logout',[AdminController::class,'destroy'])->name('admin.logout')->middleware('auth:admin');
 Route::get('/logout/user', [AdminController::class,'Logout'])->name('user.logout');
+
+// change password 
+Route::get('change/admin-password',[AdminController::class,'admin_change_password'])->name('admin.change.password');
+
+// update.admin.password
+
+Route::post('update/admin-password',[AdminController::class,'admin_update_password'])->name('update.admin.password');
+
 //  ============================= Start slider routes =======================
 Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'verified'
 ])->group(function () {
