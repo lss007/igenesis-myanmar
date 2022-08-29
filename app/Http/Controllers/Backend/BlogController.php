@@ -35,7 +35,7 @@ public function viewmyblogs(){
         $request->validate([
             'title' =>'required|string',
             'summary' =>'required',
-            'image' =>'required|image',
+            // 'image' =>'required|image',
             ]);
             if($request->file('image')){
                 $blog_img =  $request->file('image');

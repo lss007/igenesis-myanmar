@@ -20,7 +20,7 @@ class SliderController extends Controller
         $request->validate([
             'title' =>'required|string',
             'description' =>'required',
-            'image' =>'required|image|mimes:jpg,png,jpeg,svg,webp|max:4096',
+            // 'image' =>'required|image|mimes:jpg,png,jpeg,svg,webp|max:4096',
             ]);
             if($request->file('image')){
                 $slider_img =  $request->file('image');
