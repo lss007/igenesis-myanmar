@@ -14,7 +14,7 @@
             <div class="col"> 
               <div class="navCol">
                 <div class="navLinks">
-                  <ul>
+                  <ul>  
                     <li>
                       <a href="{{route('front.homepage')}}">Home</a>
                     </li>
