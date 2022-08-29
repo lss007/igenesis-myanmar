@@ -8,7 +8,7 @@ use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Backend\BlogController;
-
+use App\Http\Controllers\Backend\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +85,13 @@ Route::post('update/admin-password',[AdminController::class,'admin_update_passwo
 Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'verified'
 ])->group(function () {
 Route::prefix('admin')->group(function(){
+    // ProfileController
+Route::controller(ProfileController::class)->group(function () {
+    Route::get('/edit-profile','editAdminProfile')->name('admin.editAdminProfile');
+    Route::post('/update-profile','updateAdminProfile')->name('admin.updateAdminProfile');
+
+    });
+
 Route::controller(SliderController::class)->group(function () {
 Route::get('/viewsliders','viewslider')->name('admin.homeslider');
 // Manage slider 

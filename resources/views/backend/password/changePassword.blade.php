@@ -14,22 +14,8 @@
 
         <form method="post" action="{{route('update.admin.password')}}" >
             @csrf
-            <div class="mb-3">
-              <label for="title-name" class="col-form-label">Name </label>
-
-              <input  type="text"  name="name"  class="form-control" required=""  value="{{$getinfo->name}}"> 
-              @error('name')
-              <span class=" text-danger">{{ $message }}</span>
-              @enderror
-            </div>
-            <div class="mb-3">
-              <label for="title-name" class="col-form-label">Email  :</label>
-
-              <input type="email"  name="email"  class="form-control" required=""  value="{{$getinfo->email}}"> 
-              @error('email')
-              <span class=" text-danger">{{ $message }}</span>
-              @enderror
-            </div>
+    
+       
             <div class="mb-3">
               <label for="title-name" class="col-form-label">Old password :</label>
 
