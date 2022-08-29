@@ -170,7 +170,7 @@
                         </td>
                         <td>
 
-                          <a href="{{route('user.remove.blog',$values->id)}} ">
+                          <a href="{{route('user.remove.blog',$values->id)}} " class="btn btn-primary">
 
                             <i class="bi bi-trash"></i>
                           </a>

@@ -15,7 +15,9 @@
       </form>
     </div><!-- End Search Bar -->
 @php
-    $get_messages = App\Models\Contact::latest()->get();
+    $get_allmessages = App\Models\Contact::latest('created_at')->get();
+    $get_messages = App\Models\Contact::latest('created_at')->get()->take(3);
+
 @endphp
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
@@ -105,12 +107,12 @@
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-chat-left-text"></i>
-        <span class="badge bg-success badge-number">@if(count($get_messages) > 0  ) {{count($get_messages)}}  @else 0 @endif </span>
+        <span class="badge bg-success badge-number">@if(count($get_allmessages) > 0  ) {{count($get_allmessages)}}  @else 0 @endif </span>
           </a><!-- End Messages Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
             <li class="dropdown-header">
-              You have @if(count($get_messages) > 0  ) {{count($get_messages) }}@else no @endif new messages
+              You have @if(count($get_allmessages) > 0  ) {{count($get_allmessages) }}@else no @endif new messages
               <a href="{{route('contact.messages')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
             </li>
             <li>

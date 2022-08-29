@@ -149,11 +149,11 @@
                       </td width="20%">
                       <td>
     
-                          <a href="{{route('user.edit.post',$value->id)}} ">
+                          <a href="{{route('user.edit.post',$value->id)}} " class="btn btn-primary">
                             <i class="bi bi-pencil-square"></i>
                           </a>
     
-                          <a href="{{route('user.delete.post',$value->id)}} ">
+                          <a href="{{route('user.delete.post',$value->id)}} " class="btn btn-primary">
     
                           <i class="bi bi-trash"></i>
                         </a>

@@ -52,13 +52,13 @@
                   </td>
                   <td>
                     {{-- view Message --}}
-                    <a href="{{route('view.contact.messages',$value->id)}} ">
+                    <a href="{{route('view.contact.messages',$value->id)}} " class="btn btn-primary">
                         <i class="bi bi-eye"></i>
                       </a>
                     {{-- view Message --}}
 
 
-                      <a href="{{route('delete.contact.messages',$value->id)}}"  id="delete">
+                      <a href="{{route('delete.contact.messages',$value->id)}}"  id="delete" class="btn btn-primary">
                       <i class="bi bi-trash" ></i>
                     </a>
 
