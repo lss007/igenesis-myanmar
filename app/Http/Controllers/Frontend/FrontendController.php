@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BlogPost;
 use Illuminate\Http\Request;
 use App\Models\Contact;
-
+use App\Models\ResumeRecord;
 
 class FrontendController extends Controller
 {
@@ -72,5 +72,54 @@ class FrontendController extends Controller
 
 
     }
+
+//JOin us 
+public function joinUs(){
+    return view('frontend.joinus');
+
+}
+//submit resume 
+    public function submitResume(Request $request){
+        $request->validate([
+            'name' =>'required|string',
+            'email' =>'required',
+            'location' =>'required',
+            'contact' =>'required|numeric',
+            'current_industry' =>'required',
+            'current_function' =>'required',
+            'resumeFile' =>'required|max:4096',
+            ]);
+    if($request->file('resumeFile')){
+            $resumefile =  $request->file('resumeFile');
+            $genrated_name = time().'_'.$resumefile->getClientOriginalName();
+            $resumePath =  $resumefile->move( storage_path('app/public/resume/'.$genrated_name));
+            $save_url ='storage/resume/'.$genrated_name;             
+    }
+
+            $saveResume = new ResumeRecord();
+            $saveResume->name = $request->name;
+            $saveResume->email = $request->email;
+            $saveResume->location = $request->location;
+            $saveResume->contact = $request->contact;
+            $saveResume->current_industry = $request->current_industry;
+            $saveResume->current_function = $request->current_function;
+            $saveResume->resumeFile = $save_url;
+            $saveResume->save();
+            $notification = array(
+                'message' => 'Slider Inserted successfully',
+                'alert-type' => 'success'
+                );
+
+             return  redirect()->back()->with($notification);
+
+
+
+    
+
+
+
+
+}
+
 
 }

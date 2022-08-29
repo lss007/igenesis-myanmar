@@ -6,9 +6,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\CategoryController;
-use App\Http\Controllers\PostController;
+
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\ManageCvController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,13 @@ Route::controller(FrontendController::class)->group(function () {
     Route::post('/store-contact', 'storecontact')->name('front.storecontact');
 // blog page 
     Route::get('/view-blog', 'viewBlog')->name('front.view.blogs');
+
+    Route::get('/join-us', 'joinUs')->name('front.view.joinUs');
+    //submit resume 
+    Route::post('/submit-resume', 'submitResume')->name('front.submitResume');
+
+    
+
 
     
 
@@ -85,6 +93,14 @@ Route::post('update/admin-password',[AdminController::class,'admin_update_passwo
 Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'verified'
 ])->group(function () {
 Route::prefix('admin')->group(function(){
+    // Manage CV controoler 
+    
+    Route::controller(ManageCvController::class)->group(function () {
+    Route::get('/manage-resume','manageResume')->name('admin.manageResume');
+
+
+    });
+
     // ProfileController
 Route::controller(ProfileController::class)->group(function () {
     Route::get('/edit-profile','editAdminProfile')->name('admin.editAdminProfile');

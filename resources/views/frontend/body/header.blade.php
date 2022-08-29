@@ -62,7 +62,7 @@
                       </p>
                       <ul class="subMenu">
                         <li>
-                          <a href="javascript:void(0)">
+                          <a href="{{route('front.view.joinUs')}}">
                             Submit Your Resume
                           </a>
                         </li>

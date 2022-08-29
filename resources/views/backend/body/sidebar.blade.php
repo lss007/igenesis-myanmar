@@ -48,6 +48,12 @@
           <span>View Blogs </span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{route('admin.manageResume')}}">
+          <i class="bi bi-card-image"></i>
+          <span>View Resumes </span>
+        </a>
+      </li>
 
 
 
