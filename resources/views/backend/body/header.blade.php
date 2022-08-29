@@ -111,22 +111,22 @@
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
             <li class="dropdown-header">
               You have @if(count($get_messages) > 0  ) {{count($get_messages) }}@else no @endif new messages
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+              <a href="{{route('contact.messages')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
-        
+      
 @if(count($get_messages) > 0 )
 @foreach($get_messages as $messages)
              <li class="message-item">
-              <a href="#">
+              <a href="{{route('contact.messages')}}">
                 <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
                 <div>
-                  <h4>{{$messages->name}}</h4>
+                  <h4>{{ ucwords($messages->name)}}</h4>
                   <p>
-                    {{Str::limit(	$messages->message,30,$end='....')}}
+                    {{ucwords(Str::limit(	$messages->message,30,$end='....'))}}
                   </p>
                   <p>
                     {{Carbon\Carbon::parse($messages->created_at)->diffForHumans()}}

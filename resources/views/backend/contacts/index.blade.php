@@ -53,7 +53,7 @@
                   <td>
                     {{-- view Message --}}
                     <a href="{{route('view.contact.messages',$value->id)}} ">
-                        <i class="bi bi-pencil-square"></i>
+                        <i class="bi bi-eye"></i>
                       </a>
                     {{-- view Message --}}
 
@@ -61,10 +61,7 @@
                       <a href="{{route('delete.contact.messages',$value->id)}}"  id="delete">
                       <i class="bi bi-trash" ></i>
                     </a>
-                
-               
-                
-                
+
                 </td>
 
                 </tr>
