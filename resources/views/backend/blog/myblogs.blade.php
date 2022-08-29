@@ -132,7 +132,7 @@
                       <th scope="row" width="5%">{{$keys+1}}</th>
                       <td width="20%"> {{Str::limit(	$value->title,20,$end='....')}}<br> 
                      <span class="text-success"> By: {{$value->user->name}}</span></td>
-                      <td width="35%"> {{Str::limit(	$value->summary,30,$end='....')}}<br>
+                      <td width="25%"> {{Str::limit(	$value->summary,30,$end='....')}}<br>
                         <span class="text-success">  {{Carbon\Carbon::parse($value->created_at)->diffforHumans()}}</span>
                       </td>
                       <td width="20%"><img src="{{asset($value->image)}}" alt="{{$value->title}}" width="100"></td>
@@ -146,7 +146,7 @@
                         <span class="badge bg-warning">Pending</span>
                       </a>
                         @endif
-                      </td width="20%">
+                      </td width="25%">
                       <td>
     
                           <a href="{{route('user.edit.post',$value->id)}} " class="btn btn-primary">

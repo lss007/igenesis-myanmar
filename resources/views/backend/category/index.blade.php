@@ -85,10 +85,10 @@
                 <tr>
                   <th scope="row" width="5%">{{$keys+1}}</th>
                   <td width="20%"> {{	$value->user->name}}</td>
-                  <td width="30%"> {{$value->name}}</td>
-                  <td width="30%">  {{Carbon\Carbon::parse($value->created_at)->diffforHumans()}}</td>
-                  <td width="10%" >
-                      <a href="{{route('edit.blog.category',$value->id)}} "  class="btn btn-primary">
+                  <td width="20%"> {{$value->name}}</td>
+                  <td width="25%">  {{Carbon\Carbon::parse($value->created_at)->diffforHumans()}}</td>
+                  <td width="20%" >
+                      <a href="{{route('edit.blog.category',$value->id)}} "  class="btn btn-primary" >
                         <i class="bi bi-pencil-square"></i>
                       </a>
                       <a href="{{route('delete.blog.category',$value->id)}} " class="btn btn-primary">
