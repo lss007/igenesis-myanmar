@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\BlogPost;
 use Illuminate\Http\Request;
 use App\Models\Contact;
+
+
 class FrontendController extends Controller
 {
     //Home page 
@@ -63,7 +66,9 @@ class FrontendController extends Controller
     }
     //    view blogs 
     public function viewBlog(){
-        return view('frontend.blogpage');
+        $getBlog['getBlogData'] = BlogPost::latest('created_at')->where('status', '=', '1')->get();
+
+        return view('frontend.blogpage',$getBlog);
 
 
     }

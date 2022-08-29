@@ -1,7 +1,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="#" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Admin Dashboard</span>
       </a>
@@ -14,7 +14,11 @@
         <button type="submit" title="Search"><i class="bi bi-search"></i></button>
       </form>
     </div><!-- End Search Bar -->
+@php
+    $get_allmessages = App\Models\Contact::latest('created_at')->get();
+    $get_messages = App\Models\Contact::latest('created_at')->get()->take(3);
 
+@endphp
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
@@ -103,59 +107,55 @@
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-chat-left-text"></i>
-            <span class="badge bg-success badge-number">3</span>
+        <span class="badge bg-success badge-number">@if(count($get_allmessages) > 0  ) {{count($get_allmessages)}}  @else 0 @endif </span>
           </a><!-- End Messages Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
             <li class="dropdown-header">
-              You have 3 new messages
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+              You have @if(count($get_allmessages) > 0  ) {{count($get_allmessages) }}@else no @endif new messages
+              <a href="{{route('contact.messages')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
+      
+@if(count($get_messages) > 0 )
+@foreach($get_messages as $messages)
+             <li class="message-item">
+              <a href="{{route('contact.messages')}}">
                 <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
                 <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
+                  <h4>{{ ucwords($messages->name)}}</h4>
+                  <p>
+                    {{ucwords(Str::limit(	$messages->message,30,$end='....'))}}
+                  </p>
+                  <p>
+                    {{Carbon\Carbon::parse($messages->created_at)->diffForHumans()}}
+                  </p>
                 </div>
               </a>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
+@endforeach
+@else 
+<li class="message-item">
+  <a href="#">
+    <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
+    <div>
+      <h4></h4>
+      <p>
+       No Message found
+      </p>
+    
+    </div>
+  </a>
+</li>
 
-            <li class="message-item">
-              <a href="#">
-                <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+
+        @endif
 
             <li class="dropdown-footer">
               <a href="#">Show all messages</a>
@@ -168,43 +168,43 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{{asset('backend/assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle">
+            <img src="{{(!empty(auth()->guard('admin')->user()->profile_photo_path))  ? asset(auth()->guard('admin')->user()->profile_photo_path):url('assets/no_image.jpg')}}" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->guard('admin')->user()->name  }}</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-                <h6>{{ auth()->guard('admin')->user()->name }} </h6>
-              <span>{{ auth()->guard('admin')->user()->email }} </span>
+                <h6>{{ ucwords(auth()->guard('admin')->user()->name)  }} </h6>
+              <span>{{ ucwords(auth()->guard('admin')->user()->email)  }} </span>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="{{route('admin.editAdminProfile')}}">
                 <i class="bi bi-person"></i>
-                <span>My Profile</span>
+                <span>Edit Profile</span>
               </a>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+            {{-- <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
               </a>
             </li>
             <li>
               <hr class="dropdown-divider">
-            </li>
+            </li> --}}
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+              <a class="dropdown-item d-flex align-items-center" href="{{route('admin.change.password')}}">
                 <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
+                <span>Change Password </span>
               </a>
             </li>
             <li>

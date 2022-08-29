@@ -104,11 +104,11 @@
                   </td width="20%">
                   <td>
 
-                      <a href="{{route('admin.edit.slider',$value->id)}} ">
+                      <a href="{{route('admin.edit.slider',$value->id)}} " class="btn btn-primary">
                         <i class="bi bi-pencil-square"></i>
                       </a>
 
-                      <a href="{{route('admin.delete.slider',$value->id)}} ">
+                      <a href="{{route('admin.delete.slider',$value->id)}} " class="btn btn-primary">
 
                       <i class="bi bi-trash"></i>
                     </a>

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\post;
+use App\Models\BlogPost;
 use Carbon\Carbon; 
 use Image;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 class BlogController extends Controller
 {
@@ -20,10 +20,9 @@ public function viewmyblogs(){
     // print($user);
     // die();
 
-    $blogdata['getMyblogs'] = Post::where('authorId', $user->id)->get();
+    $blogdata['getMyblogs'] = BlogPost::where('authorId', $user->id)->get();
     $blogdata['blogCat'] = Category::orderBy('name', 'ASC')->get();
     return view('backend.blog.myblogs',$blogdata);
-
 
 }
     //view blog post 
@@ -36,15 +35,19 @@ public function viewmyblogs(){
         $request->validate([
             'title' =>'required|string',
             'summary' =>'required',
-            'image' =>'required|image|mimes:jpg,png,jpeg,svg,webp|max:4096',
+            // 'image' =>'required|image',
             ]);
             if($request->file('image')){
                 $blog_img =  $request->file('image');
-                $name_gen = hexdec(uniqid()).'.'.$blog_img->getClientOriginalExtension();
+                $name_gen = time().'_'.$blog_img->getClientOriginalName();
                 Image::make($blog_img)->fit(354,236)->save(public_path('assets/blog/'.$name_gen));
+                
                 $save_url = 'assets/blog/'.$name_gen;
+                // if path is storage can use below 
+                // Image::make($blog_img)->fit(354,236)->save( storage_path('app/public/blog/'.$name_gen));
+                // $save_url ='storage/blog/'.$name_gen;
               }
-                $publishPost = new post();
+                $publishPost = new BlogPost();
                 $userid =   auth()->guard('admin')->user()->id;
                 $publishPost->authorId =   $userid;
                 $publishPost->catId =  $request->catId;
@@ -61,7 +64,7 @@ public function viewmyblogs(){
     // Edit blog post 
     public function editPost($id){
         $editPost['blogCat'] = Category::orderBy('name', 'ASC')->get();
-        $editPost['editBlogpost'] =  post::find($id);
+        $editPost['editBlogpost'] =  BlogPost::find($id);
     return view('backend.blog.edit',$editPost);
 
 
@@ -70,11 +73,11 @@ public function viewmyblogs(){
 
     // update blog post 
     public function updatepost(Request $request, $id){
-        $old_slider  =  post::find($id);
+        $old_slider  =  BlogPost::find($id);
         $old_image = $old_slider->image ;
         if($request->file('image')){
             $blog_img =  $request->file('image');
-            $name_gen = hexdec(uniqid()).'.'.$blog_img->getClientOriginalExtension();
+            $name_gen = time().'_'.$blog_img->getClientOriginalName();
             Image::make($blog_img)->fit(354,236)->save(public_path('assets/blog/'.$name_gen));
             $save_url = 'assets/blog/'.$name_gen;
 
@@ -82,7 +85,7 @@ public function viewmyblogs(){
             if(file_exists($old_image)){
                 unlink($old_image);  
                 }
-                $publishPost =  post::find($id);
+                $publishPost =  BlogPost::find($id);
                 $userid =   auth()->guard('admin')->user()->id;
                 $publishPost->authorId =  $userid ;
                 $publishPost->catId =  $request->catId;
@@ -93,7 +96,7 @@ public function viewmyblogs(){
                 $publishPost->save();
                 return  redirect()->route('admin.view.myblog')->with('info', 'Blog  image update Sucessfull');
           }else{
-            $publishPost =  post::find($id);
+            $publishPost =  BlogPost::find($id);
             $userid =   auth()->guard('admin')->user()->id;
             $publishPost->authorId =  $userid ;
             $publishPost->catId =  $request->catId;
@@ -109,14 +112,14 @@ public function viewmyblogs(){
 
     //delete post 
     public function deletepost($id ){
-        $oldPost  =  post::find($id);
+        $oldPost  =  BlogPost::find($id);
         $old_image = $oldPost->image;
         // dd($old_image );
         if(file_exists($old_image)){
             // dd($old_image);
             unlink($old_image);  
             }
-    $deletePost =  post::find($id);
+    $deletePost =  BlogPost::find($id);
     $deletePost->delete();
     return  redirect()->route('admin.view.myblog')->with('error', 'Blog  image update Sucessfull');
     }

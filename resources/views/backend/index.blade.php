@@ -69,7 +69,7 @@
                     </div>
                     <div class="ps-3">
                       @php
-                      $post = App\Models\post::latest()->get();
+                      $post = App\Models\BlogPost::latest('created_at')->get();
                       @endphp
                       <h6>
                         {{count($post)}} <span>| Post's</span>
@@ -97,7 +97,7 @@
                               </div>
                               <div class="ps-3">
                                 @php
-                                $approved = App\Models\post::where('status','=','1')->get();
+                                $approved = App\Models\BlogPost::where('status','=','1')->get();
                                 @endphp
                                 <h6>
                                   {{count($approved)}} <span>| Post's</span>
@@ -152,7 +152,9 @@
                       <tr>
                         <th scope="row"><a href="#">{{$key +1}}</a></th>
                         <td>{{$values->user->name}}</td>
-                        <td><a href="#" class="text-primary">{{$values->summary}}  </a></td>
+                        <td><a href="#" class="text-primary">
+                          {{Str::limit(	$values->summary,200,$end='....')}}
+                        </a></td>
                         <td><img src="{{asset($values->image)}}" alt="{{$values->image}}" width="100"></td>
                         <td> {{Carbon\Carbon::parse($values->created_at)->diffforHumans()}}</td>
                         <td>
@@ -168,7 +170,7 @@
                         </td>
                         <td>
 
-                          <a href="{{route('user.remove.blog',$values->id)}} ">
+                          <a href="{{route('user.remove.blog',$values->id)}} " class="btn btn-primary">
 
                             <i class="bi bi-trash"></i>
                           </a>

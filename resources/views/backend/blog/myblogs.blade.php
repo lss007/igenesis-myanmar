@@ -108,8 +108,8 @@
 
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Slider</h5>
-                <p>Mange slider </p>
+                <h5 class="card-title">@yield('title')</h5>
+          
                 
     
                 <!-- Table with stripped rows -->
@@ -126,33 +126,34 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @if(count($getMyblogs) > 0)
                     @foreach($getMyblogs as $keys => $value)
                     <tr>
                       <th scope="row" width="5%">{{$keys+1}}</th>
                       <td width="20%"> {{Str::limit(	$value->title,20,$end='....')}}<br> 
                      <span class="text-success"> By: {{$value->user->name}}</span></td>
-                      <td width="35%"> {{Str::limit(	$value->summary,30,$end='....')}}<br>
+                      <td width="25%"> {{Str::limit(	$value->summary,30,$end='....')}}<br>
                         <span class="text-success">  {{Carbon\Carbon::parse($value->created_at)->diffforHumans()}}</span>
                       </td>
                       <td width="20%"><img src="{{asset($value->image)}}" alt="{{$value->title}}" width="100"></td>
                       <td width="5%">
-                    @if($value->status == 1)
-             
-                    <span class="badge bg-success">Approved</span>
-         
-                    @else 
-              
-                    <span class="badge bg-warning">Pendings </span>
-          
-                    @endif
-                      </td width="20%">
+                        @if($value->status == '1')
+                        <a href="{{route('user.rejected.post',$value->id)}}">
+                        <span class="badge bg-success">Approved</span>
+                      </a>
+                      @else
+                      <a href="{{route('user.approved.post',$value->id)}}">
+                        <span class="badge bg-warning">Pending</span>
+                      </a>
+                        @endif
+                      </td width="25%">
                       <td>
     
-                          <a href="{{route('user.edit.post',$value->id)}} ">
+                          <a href="{{route('user.edit.post',$value->id)}} " class="btn btn-primary">
                             <i class="bi bi-pencil-square"></i>
                           </a>
     
-                          <a href="{{route('user.delete.post',$value->id)}} ">
+                          <a href="{{route('user.delete.post',$value->id)}} " class="btn btn-primary">
     
                           <i class="bi bi-trash"></i>
                         </a>
@@ -164,6 +165,7 @@
     
                     </tr>
             @endforeach
+            @endif
                   </tbody>
                 </table>
                 <!-- End Table with stripped rows -->

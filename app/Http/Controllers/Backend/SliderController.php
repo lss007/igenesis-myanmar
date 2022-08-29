@@ -22,6 +22,7 @@ class SliderController extends Controller
             'description' =>'required',
             'image' =>'required|image|mimes:jpg,png,jpeg,svg,webp|max:4096',
             ]);
+            
             if($request->file('image')){
                 $slider_img =  $request->file('image');
                 $name_gen = hexdec(uniqid()).'.'.$slider_img->getClientOriginalExtension();

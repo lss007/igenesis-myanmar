@@ -43,28 +43,25 @@
                 @foreach($get_messages as $keys => $value)
                 <tr>
                   <th scope="row" width="5%">{{$keys+1}}</th>
-                  <td width="20%"> {{$value->name}}</td>
+                  <td width="10%"> {{$value->name}}</td>
                   <td width="10%"> {{$value->email}}</td>
                   <td width="15%">{{$value->subject}}</td>
                   <td width="30%">
                  
                     {{Str::limit(	$value->message,30,$end='....')}}
                   </td>
-                  <td>
+                  <td width="25%">
                     {{-- view Message --}}
-                    <a href="{{route('view.contact.messages',$value->id)}} ">
-                        <i class="bi bi-pencil-square"></i>
+                    <a href="{{route('view.contact.messages',$value->id)}} " class="btn btn-primary">
+                        <i class="bi bi-eye"></i>
                       </a>
                     {{-- view Message --}}
 
 
-                      <a href="{{route('delete.contact.messages',$value->id)}}"  id="delete">
+                      <a href="{{route('delete.contact.messages',$value->id)}}"  id="delete" class="btn btn-primary">
                       <i class="bi bi-trash" ></i>
                     </a>
-                
-               
-                
-                
+
                 </td>
 
                 </tr>

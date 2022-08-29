@@ -25,7 +25,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('contact.messages')}}">
-          <i class="bi bi-messenger"></i><span>Contact Messages</span>
+          <i class="bi bi-messenger"></i><span>View Messages</span>
         </a>
       
       </li>
@@ -37,7 +37,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('view.blog.category')}}">
           <i class="bi bi-person"></i>
-          <span>Blog Category</span>
+          <span>Add Blog Category</span>
         </a>
       </li>
       
@@ -45,31 +45,11 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('admin.view.myblog')}}">
           <i class="bi bi-card-image"></i>
-          <span>My Blogs </span>
+          <span>View Blogs </span>
         </a>
       </li>
 
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('register')}}" target="_blank">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('login')}}" target="_blank">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
-        </a>
-      </li><!-- End Login Page Nav -->
 
   
 

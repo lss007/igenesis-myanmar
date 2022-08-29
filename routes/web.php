@@ -8,7 +8,7 @@ use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Backend\BlogController;
-
+use App\Http\Controllers\Backend\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,10 +73,25 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
 
 Route::get('logout',[AdminController::class,'destroy'])->name('admin.logout')->middleware('auth:admin');
 Route::get('/logout/user', [AdminController::class,'Logout'])->name('user.logout');
+
+// change password 
+Route::get('change/admin-password',[AdminController::class,'admin_change_password'])->name('admin.change.password');
+
+// update.admin.password
+
+Route::post('update/admin-password',[AdminController::class,'admin_update_password'])->name('update.admin.password');
+
 //  ============================= Start slider routes =======================
 Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'verified'
 ])->group(function () {
 Route::prefix('admin')->group(function(){
+    // ProfileController
+Route::controller(ProfileController::class)->group(function () {
+    Route::get('/edit-profile','editAdminProfile')->name('admin.editAdminProfile');
+    Route::post('/update-profile','updateAdminProfile')->name('admin.updateAdminProfile');
+
+    });
+
 Route::controller(SliderController::class)->group(function () {
 Route::get('/viewsliders','viewslider')->name('admin.homeslider');
 // Manage slider 
