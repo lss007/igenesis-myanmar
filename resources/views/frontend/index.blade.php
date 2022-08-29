@@ -282,14 +282,14 @@
                     <div class="col-sm">
                       <div class="csUserText">
                         <h4>Lakshminarayana Chowdhury </h4>
-                        <span class="text-white">Senior Manager – Internal Audit</span>
+                        <span class="text-white">Chief Financial Officer</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="vmContent">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>Mr LN Chowdhury is the Chief Financial Officer at iGenesis. He is graduated and post graduated in Commerce(M.Com-Accounts, and MBA(Finance) and Certified Accountant from Apex Institute- Institute of Chartered Accountants of India. Having been associated with Manufacturing- Paper & Pulp, Telecom Operators, Equipment Manufacturer, and Telecom Service Sectors for renowned companies Like Ballarpur Industries Limited, Tata Teleservices Limited, Acme Cleantech Solutions limited, GTL Saudi Arabia Ltd, Genesis Myanmar Ltd for a period of 19 Years+ in the countries in India, Saudi Arabia, and Myanmar at different positions. He is having ample exposure and expertise in the areas of  Auditing and compliance. Risk assessment and governance,  E2E Finance management, and reporting.</p>
                 <div class="viewCol">
                   <a href="javascript:void(0);">
                     View
