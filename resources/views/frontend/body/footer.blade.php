@@ -83,7 +83,7 @@
         </div>
       </div>
       <div class="whatsappIcon">
-        <a href="https://wa.me/+61481612340" target="_blank">
+        <a href="https://wa.me/+959797001345" target="_blank">
           <img src="{{asset('assets/images/whatsapp-icon.svg')}}" alt="...">
         </a>
       </div>

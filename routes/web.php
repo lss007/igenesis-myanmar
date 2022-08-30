@@ -29,6 +29,8 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/', 'homepage')->name('front.homepage');
     // about_us
     Route::get('/about-us', 'aboutUs')->name('front.about.us');
+    // our_people
+    Route::get('/our-people', 'ourPeople')->name('front.our.people');
     // services 
     Route::get('/services', 'services')->name('front.services');
     // whatarewe

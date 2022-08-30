@@ -19,6 +19,12 @@ class FrontendController extends Controller
         return view('frontend.aboutus');
 
     }
+    //our people 
+    public function ourPeople(){
+        return view('frontend.ourpeople');
+
+    }
+    
     // services
     public function services(){
         return view('frontend.services');

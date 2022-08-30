@@ -22,7 +22,7 @@
                       <a href="{{route('front.about.us')}}">About</a>
                     </li>
                     <li>
-                      <a href="#">Our People</a>
+                      <a href="{{route('front.our.people')}}">Our People</a>
                     </li>
                     <li>
                       <a href="{{route('front.services')}}">Services</a>
