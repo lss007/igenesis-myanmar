@@ -63,7 +63,7 @@
                       <ul class="subMenu">
                         <li>
                           <a href="{{route('front.view.joinUs')}}">
-                            Submit Your Resume
+                            Submit Your CV
                           </a>
                         </li>
                       </ul>
