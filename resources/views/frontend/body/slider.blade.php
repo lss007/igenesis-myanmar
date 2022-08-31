@@ -15,11 +15,11 @@
                   <p>{{$values->description}}</p>
                   <div class="bannerBtn">
                      <div class="btn__wrap btn--fix-width" data-reactid="106">
-                      <a class="btn btn_light" data-text="About Us" href="about.html" data-reactid="107">
+                      <a class="btn btn_light" data-text="About Us" href="{{route('front.about.us')}}" data-reactid="107">
                         <span class="btn__overlay" data-reactid="108"></span>
                         <span class="btn__text" data-reactid="109">About Us</span>
                       </a>
-                    </div>
+                    </div> 
                   </div>
                 </div>
               </div>
@@ -35,7 +35,7 @@
                   <p>Partnering in Infrastructure development across Myanmar</p>
                   <div class="bannerBtn">
                     <div class="btn__wrap btn--fix-width" data-reactid="106">
-                      <a class="btn btn_light" data-text="About Us" href="about.html" data-reactid="107">
+                      <a class="btn btn_light" data-text="About Us" href="{{route('front.about.us')}}" data-reactid="107">
                         <span class="btn__overlay" data-reactid="108"></span>
                         <span class="btn__text" data-reactid="109">About Us</span>
                       </a>

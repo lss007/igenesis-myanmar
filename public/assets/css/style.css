@@ -260,6 +260,10 @@ body.actNav {
   z-index: 9;
 }
 /********* toggle css end *********/
+.ourPeopleCol.teamSection {
+  background: transparent;
+  background-color: #f7f7f7;
+}
 /********* headerTop css start *********/
 .headerTop {
   padding: 14px 0;
@@ -425,7 +429,7 @@ body.actNav {
   position: relative;
 }
 .bannerInner.innerBanner {
-  padding: 200px 0 100px;
+  padding: 140px 0 100px;
 }
 .bannerInner::before {
   content: "'";
@@ -465,7 +469,7 @@ body.actNav {
   background-image: url(../images/banner-img3.jpg);
 }
 .bannerContent {
-  padding-bottom: 150px;
+  padding-bottom: 80px;
   position: relative;
 }
 .bannerContent > h1 {
@@ -1285,7 +1289,7 @@ p {
 
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
 
-  min-width: 190px;
+  min-width: 250px;
 
   min-height: 90px;
 
@@ -1357,9 +1361,9 @@ p {
 
   position: relative;
 
-  width: 95px;
+  width: 70px;
 
-  height: 50px;
+  height: 80px;
 
   object-fit: contain;
 
@@ -1720,10 +1724,29 @@ a.learnMore::after {
 
 }
 
-
+@media (max-width:1399px) {
+  .navLinks > ul > li a {
+    font-size: 14px;
+  }
+  .navLinks > ul > li + li {
+    margin-left: 25px;
+  }
+  .bannerContent > h1 {
+    font-size: 50px;
+  }
+  .bannerContent {
+    padding-bottom: 80px;
+  }
+  .bannerInner.innerBanner {
+    padding: 150px 0 100px;
+  }
+}
 
 @media (max-width:1199px) {
-
+  
+  .navLinks > ul > li a {
+    font-size: 13px;
+  }
   .bannerInner {
 
     padding: 260px 0 80px;
@@ -1732,7 +1755,7 @@ a.learnMore::after {
 
   .bannerContent > h1 {
 
-    font-size: 60px;
+    font-size: 40px;
 
   }
 
@@ -1789,7 +1812,7 @@ a.learnMore::after {
 
   .navLinks > ul > li + li {
 
-    margin-left: 30px;
+    margin-left: 15px;
 
   }
 
@@ -1954,7 +1977,7 @@ a.learnMore::after {
 
   .bannerContent > h1 {
 
-    font-size: 50px;
+    font-size: 35px;
 
   }
 

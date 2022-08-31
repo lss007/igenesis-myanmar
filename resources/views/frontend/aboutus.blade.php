@@ -1,7 +1,7 @@
 @extends('frontend.body.homemaster')
 @section('title', 'About us')
 @section('content')
-<section>
+  <section>
     <div class="bannerSection">
       <div class="bannerSlider">
         <div class="bannerInner innerBanner" style="background-image: url('{{asset('assets/images/banner-img1.jpg')}}');">
