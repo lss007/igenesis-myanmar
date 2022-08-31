@@ -37,7 +37,7 @@
               <td height="10"><img src="https://img.spacergif.org/v1/spacer.gif" alt="..." style="display:block; border:none;"></td>
             </tr>
             <tr>
-              <td align="center"><a href="javascript:void(0)"><img src="https://inepal.genesisnepal.com/images/logo.png" alt="..." width="100"></a></td>
+              <td align="center"><a href="javascript:void(0)"><img src="https://genesismyanmar.com/assets/images/logo2.svg" alt="..." width="100"></a></td>
             </tr>
             <tr>
               <td height="2" style="border-bottom: 3px solid #ff6e00;"><img src="https://img.spacergif.org/v1/spacer.gif" alt="..." style="display:block; border:none;"></td>
