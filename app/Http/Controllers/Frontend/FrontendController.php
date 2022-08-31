@@ -7,6 +7,9 @@ use App\Models\BlogPost;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\ResumeRecord;
+use Illuminate\Support\Facades\Mail;
+
+use Illuminate\Support\Facades\Storage;
 
 class FrontendController extends Controller
 {
@@ -58,10 +61,27 @@ class FrontendController extends Controller
                 $post_inq->subject =  $request->subject;
                 $post_inq->message =  $request->message;
                 $post_inq->save();
+               
                 $notification = array(
                 'message' => 'Thanks for Contact us ',
                 'alert-type' => 'success'
     );
+
+                    Mail::send('contact',
+                 array(
+                        'name' => $request->get('name'),
+                        'email' => $request->get('email'),
+                        'subject' => $request->get('subject'),
+                        'messages' => $request->get('message') ,
+                    ),
+                        function($message) use ($request){
+                        $message->from($request->email);
+                        $message->to('bijaya.subedi@genesisnepal.com', $request->name)->subject($request->name);
+                        }
+                    );
+
+            
+
                  return redirect()->route('front.homepage')->with($notification); 
     }
     //    view blogs 
@@ -90,10 +110,16 @@ public function joinUs(){
             'resumeFile' =>'required|max:4096',
             ]);
     if($request->file('resumeFile')){
-            $resumefile =  $request->file('resumeFile');
-            $genrated_name = time().'_'.$resumefile->getClientOriginalName();
-            $resumePath =  $resumefile->move( storage_path('app/public/resume/'.$genrated_name));
-            $save_url ='storage/resume/'.$genrated_name;             
+
+            $file = $request->file('resumeFile');
+
+            // $filename = 'Resume' . time() . '.' . $file->getClientOriginalExtension();
+         
+            // $path = $file->storeAs('resume', $filename);
+
+            $fileName = 'Resume'.time().'_'.$file->getClientOriginalName();
+            $filePath = $file->storeAs('resume', $fileName, 'public'); 
+            // dd($path);
     }
 
             $saveResume = new ResumeRecord();
@@ -103,12 +129,38 @@ public function joinUs(){
             $saveResume->contact = $request->contact;
             $saveResume->current_industry = $request->current_industry;
             $saveResume->current_function = $request->current_function;
-            $saveResume->resumeFile = $save_url;
+            $saveResume->resumeFile = $filePath;
             $saveResume->save();
             $notification = array(
-                'message' => 'Slider Inserted successfully',
+                'message' => 'Resume Submited successfully',
                 'alert-type' => 'success'
                 );
+
+                $data["name"] = $request->name;
+                $data["email"] = $request->email;
+                $data["location"] =$request->location;
+                $data["contact"] =  $request->contact ;
+                $data["current_industry"] =  $request->current_industry;
+                $data["current_function"] = $request->current_function;
+                $data["resume"] =  $fileName ;
+            
+                $files = [
+                    // Storage::path("resume/".$data["resume"]),
+                    storage_path("app/public/resume/".$data["resume"]),
+                
+                ];
+                // dd($files);
+                Mail::send('resume', $data, function($message)use($data, $files) {
+                    $message->to('bijaya.subedi@genesisnepal.com')
+                            ->subject($data["name"]);
+                    foreach ($files as $file){
+                        $message->attach($file);
+                    }
+                    
+                });
+
+
+      
 
              return  redirect()->back()->with($notification);
 
