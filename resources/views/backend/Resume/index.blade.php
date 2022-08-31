@@ -9,7 +9,22 @@
 <section class="section">
     <div class="row">
       <div class="col-lg-12">
-   
+    @if(session('sucess'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{session('sucess')}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @elseif(session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              {{session('error')}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @elseif(session('info'))
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+              {{session('info')}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">@yield('title')</h5>
@@ -47,20 +62,14 @@
                 </td>
              
                   <td width="10%">
-                <a href="">
-                <span class="badge bg-success">Active</span>
-              </a>
-                <a href=" ">
-                <span class="badge bg-danger">Inactive</span>
-                </a>
+                {{$resumes->location}}
+        
                   </td width="20%">
                   <td>
 
-                      <a href="#" class="btn btn-primary">
-                        <i class="bi bi-pencil-square"></i>
-                      </a>
+                 
 
-                      <a href="#" class="btn btn-primary">
+                      <a href="{{route('admin.deleteResume',$resumes->id)}}" class="btn btn-primary" >
 
                       <i class="bi bi-trash"></i>
                     </a>

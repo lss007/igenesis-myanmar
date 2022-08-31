@@ -100,6 +100,7 @@ Route::prefix('admin')->group(function(){
     Route::controller(ManageCvController::class)->group(function () {
     Route::get('/manage-resume','manageResume')->name('admin.manageResume');
 
+    Route::get('/delete-resume/{id}','deleteResume')->name('admin.deleteResume');
 
     });
 
