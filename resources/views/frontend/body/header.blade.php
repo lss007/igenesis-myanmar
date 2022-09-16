@@ -37,7 +37,7 @@
                       </p>
                       <ul class="subMenu">
                         <li>
-                          <a href="javascript:void(0)">
+                          <a href="{{route('front.quality.health')}}">
                             Quality & Health & Safety
                           </a>
                         </li>

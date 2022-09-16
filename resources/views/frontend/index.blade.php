@@ -193,7 +193,6 @@
                 <p>Kawade has been associated with iGenesis Myanmar since June 2015 and contributed to the various functional areas in Organization for Unbeaten Growthful Journey in Myanmar’s Business Operations.</p>
                 <p>Kawade who is a Commerce Graduate & Master in Business Administration has more than 12 years of experience in the industry having the core competencies in Project Management, Financial Planning,Operational & Business Analysis, Techno-commercial & Supply Chain Management.</p>
                 <p>At Genesis Myanmar, he is responsible for budget control by allocation of Capex, Opex, Business   Commercials and Vendor/ Partner Payments. He is also heading the Supply Chain Function & Managing End to End Processes along with the team.</p>
-                <p>At Genesis Myanmar, he is responsible for budget control by allocation of Capex, Opex, Business   Commercials and Vendor/ Partner Payments. He is also heading the Supply Chain Function & Managing End to End Processes along with the team.</p>
                 <p>Kawade Values the Commitment for Organization and Integrity and mention that these are two things ensured his Success and Achievements in Professional Career.</p>
                 <div class="viewCol">
                   <a href="javascript:void(0);">
@@ -251,14 +250,13 @@
                         <h4>Nitesh Joshi</h4>
                         <span class="text-white">Project Lead- Telecom Infra</span>
                       </div>
-                    </div>
+                    </div> 
                   </div>
                 </div>
               </div>
               <div class="vmContent">
                 <p>Nitesh Joshi is a Project Lead for telecom infrastructure projects at iGenesis Technologies Ltd (Myanmar)</p>
-                <p>Joshi has more than 10 years of experience in the field of Project Delivery, Project RF Optimization,Fiber Planning, IBS Solution, RF Planning, Technical Support, Operations, Networking in Telecom industry</p>
-                <p>Joshi has more than 10 years of experience in the field of Project Delivery, Project RF Optimization,Fiber Planning, IBS Solution, RF Planning, Technical Support, Operations, Networking in Telecom industry</p>
+                <p>Joshi has more than 10 years of experience in the field of Project Delivery, Project RF Optimization,Fiber Planning, IBS Solution, RF Planning, Technical Support, Operations, Networking in Telecom industry</p>                
                 <p>Prior to joining iGenesis Technologies (Myanmar) Ltd, he has worked with the companies such as Nxgenbio life sciences, MetroTel Works Pvt Ltd & Titiksha TeleTechnocrats Pvt Ltd etc.</p>
                 <p>Joshi with his Knowledge, Experience, Passion & Innovation makes Genesis Myanmar Ltd an effective Delivery organization in Telecom Infra to serve better to our customers.</p>
                 <div class="viewCol">
@@ -509,11 +507,15 @@
         <div class="pslogo cardSection" data-aos="fade-up" data-aos-duration="3000">
           <ul>
             <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo1.png')}}" alt="..."></a></li>
+            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo9.png')}}" alt="..."></a></li>
+            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo10.jpg')}}" alt="..."></a></li>
+            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo11.png')}}" alt="..."></a></li>
+            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo12.png')}}" alt="..."></a></li>
+            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo13.png')}}" alt="..."></a></li>
             <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo2.png')}}" alt="..."></a></li>
             <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo3.png')}}" alt="..."></a></li>
             <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo4.png')}}" alt="..."></a></li>
             <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo5.jpg')}}" alt="..."></a></li>
-            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo6.png')}}" alt="..."></a></li>
             <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo7.png')}}" alt="..."></a></li>
             <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo8.png')}}" alt="..."></a></li>
           </ul>

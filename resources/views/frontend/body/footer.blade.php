@@ -13,9 +13,9 @@
                 </div>
                  <div class="socialLinks d-none d-lg-block">
                   <ul>
-                    <li><a href="javascript:void(0);"><img src="{{asset('assets/images/facebook-icon2.svg')}}" alt="..."></a></li>
-                    <li><a href="javascript:void(0);"><img src="{{asset('assets/images/twitter-icon2.svg')}}" alt="..."></a></li>
-                    <li><a href="javascript:void(0);"><img src="{{asset('assets/images/linkedin-icon2.svg')}}" alt="..."></a></li>
+                    <li><a href="https://www.facebook.com/GenesisTechnologyMyanmar" target="_blank"><img src="{{asset('assets/images/facebook-icon2.svg')}}" alt="..."></a></li>
+                    <!-- <li><a href="javascript:void(0);"><img src="{{asset('assets/images/twitter-icon2.svg')}}" alt="..."></a></li> -->
+                    <li><a href="https://mm.linkedin.com/company/igenesis-technologies-ltd-myanmar" target="_blank"><img src="{{asset('assets/images/linkedin-icon2.svg')}}" alt="..."></a></li>
                   </ul>
                 </div>
               </div>
@@ -58,9 +58,9 @@
           </div>
           <div class="socialLinks d-block d-lg-none">
             <ul>
-              <li><a href="javascript:void(0);"><img src="{{asset('assets/images/facebook-icon2.svg')}}" alt="..."></a></li>
-              <li><a href="javascript:void(0);"><img src="{{asset('assets/images/twitter-icon2.svg')}}" alt="..."></a></li>
-              <li><a href="javascript:void(0);"><img src="{{asset('assets/images/linkedin-icon2.svg')}}" alt="..."></a></li>
+              <li><a href="https://www.facebook.com/GenesisTechnologyMyanmar" target="_blank"><img src="{{asset('assets/images/facebook-icon2.svg')}}" alt="..."></a></li>
+              <!-- <li><a href="javascript:void(0);"><img src="{{asset('assets/images/twitter-icon2.svg')}}" alt="..."></a></li> -->
+              <li><a href="https://mm.linkedin.com/company/igenesis-technologies-ltd-myanmar" target="_blank"><img src="{{asset('assets/images/linkedin-icon2.svg')}}" alt="..."></a></li>
             </ul>
           </div>
         </div>

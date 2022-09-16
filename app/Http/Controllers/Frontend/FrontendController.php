@@ -44,6 +44,11 @@ class FrontendController extends Controller
         return view('frontend.lifeatgenesis');
 
     }
+    // Quality & health
+    public function qualityHealth(){
+        return view('frontend.qualitymanagementsystem');
+
+    }
     // contactUs
     public function contactUs(){
         return view('frontend.contact');

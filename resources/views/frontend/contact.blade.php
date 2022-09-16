@@ -78,6 +78,16 @@
                   </div>
                 </div>
               </div>
+              <div class="row mt-5 pt-5 mb-5">
+                <div class="col-lg-12">
+                  <div class="titleCol text-center aos-init aos-animate" data-aos="fade-up" data-aos-duration="3000">
+                    <h2 class="lgTitle">Global <span class="themeClr">Footprint</span></h2>                    
+                  </div>
+                </div>
+                <div class="col-lg-12 text-center mt-4">
+                  <img src="{{asset('assets/images/globalfootprint.jpg')}}" alt="...">                
+                </div>
+              </div>
             </div>
           </div>
         </div>
