@@ -220,11 +220,17 @@
         <div class="pslogo cardSection" data-aos="fade-up" data-aos-duration="3000">
           <ul>
             <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo1.png')}}" alt="..."></a></li>
+            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo9.png')}}" alt="..."></a></li>
+            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo10.jpg')}}" alt="..."></a></li>
+            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo11.png')}}" alt="..."></a></li>
+            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo12.png')}}" alt="..."></a></li>
+            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo13.png')}}" alt="..."></a></li>
             <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo2.png')}}" alt="..."></a></li>
             <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo3.png')}}" alt="..."></a></li>
             <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo4.png')}}" alt="..."></a></li>
-            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo5.png')}}" alt="..."></a></li>
-            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo6.png')}}" alt="..."></a></li>
+            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo5.jpg')}}" alt="..."></a></li>
+            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo7.png')}}" alt="..."></a></li>
+            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo8.png')}}" alt="..."></a></li>
           </ul>
         </div>
       </div>
