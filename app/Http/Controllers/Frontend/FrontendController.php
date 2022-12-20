@@ -87,7 +87,7 @@ class FrontendController extends Controller
                     ),
                         function($message) use ($request){
                         $message->from($request->email);
-                        $message->to('bijaya.subedi@genesisnepal.com', $request->name)->subject($request->name);
+                        $message->to('sb@genesismyanmar.com', $request->name)->subject($request->name);
                         }
                     );
 
@@ -162,7 +162,7 @@ public function joinUs(){
                 ];
                 // dd($files);
                 Mail::send('resume', $data, function($message)use($data, $files) {
-                    $message->to('bijaya.subedi@genesisnepal.com')
+                    $message->to('sb@genesismyanmar.com')
                             ->subject($data["name"]);
                     foreach ($files as $file){
                         $message->attach($file);
