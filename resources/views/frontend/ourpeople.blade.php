@@ -116,12 +116,12 @@
                   <div class="row align-items-center">
                     <div class="col-sm-auto">
                       <div class="csUserImg">
-                        <img src="{{asset('assets/images/raman-singhal.jpg')}}" alt="...">
+                        <img src="{{asset('assets/images/siddhartha-bose.jpg')}}" alt="...">
                       </div>
                     </div>
                     <div class="col-sm">
                       <div class="csUserText">
-                        <h4>Raman Singhal</h4>
+                        <h4>Siddhartha Bose </h4>
                         <span class="text-white">Head – Human Resource & Administration</span>
                       </div>
                     </div>
@@ -129,11 +129,7 @@
                 </div>
               </div>
               <div class="vmContent">
-                <p>Raman Singhal is Head of HR & Admin at iGenesis Technologies Ltd (Myanmar)</p>
-                <p>He holds the rich industry experience of more than 19 years in the areas of Human Resources, Administration, IOT and AI products for Smart Home, Organizational Development & Team Management etc.</p>
-                <p>Singhal has been associated with Group since 2022 and is constructively contributing to the Organizational Growth & Success</p>
-                <p>Prior to joining at iGenesis Myanmar, Mr. Singhal was associated with organizations such as Increda Staffing, Trust Marketing (Gionee Mobiles), Sistema Shyam Teleservices Ltd. (MTS), Genpact and Bharti Airtel.</p>
-                <p>He believes that for every organization, its employees are an asset, and businesses should engage with them on learning, development and best of the organizational practices which will result in efficient and more productive organization.</p>
+                <p>Siddhartha Bose began his career as an HR executive with the Xenitis group, after which he took an assignment as district manager with Ushacomm India, on the Rasthriya Swasthya Bima Yojana, a Govt. of India project. After a short stint with Global Automobiles, he further solidified his skills in the field of project management at the JayPee Nigrie Super Thermal Power Project while working with Ayoki Cembol Erectors Pvt. Ltd. In 2014 he moved to Myanmar as HR manager with Veneer and Plywood Pvt. Ltd, Sagaing. In 2017 he joined Iceberg Holding Group, a Singapore based company operating in Myanmar in the capacity of HR & Payroll Manager for their HR Services outsourcing business. Later in 2020 he was promoted to HR & Admin Operations Manager, where he was not only handling the HR and also the Operations of their Oil & Gas business with 40 petrol pumps all over Myanmar. With over 14 years as a seasoned HR professional, Siddhartha is an accomplished administrator and experienced at government compliance and liaison work. He holds a Master’s in Business Administration from ICFAI University(Dehradun), and is proficient in English and spoken Burmese. He has joined iGenesis Family as HR and Admin Head. Siddhartha joined with iGenesis family from November 2022.</p>                  
                 <div class="viewCol">
                   <a href="javascript:void(0);">
                     View
@@ -181,20 +177,20 @@
                   <div class="row align-items-center">
                     <div class="col-sm-auto">
                       <div class="csUserImg">
-                        <img src="{{asset('assets/images/lakshminarayana.jpg')}}" alt="...">
+                        <img src="{{asset('assets/images/phyo.jpg')}}" alt="...">
                       </div>
                     </div>
                     <div class="col-sm">
                       <div class="csUserText">
-                        <h4>Lakshminarayana Chowdhury </h4>
-                        <span class="text-white">Chief Financial Officer</span>
+                        <h4>Phyo Phyo Zar Chi</h4>
+                        <span class="text-white">Project Lead</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="vmContent">
-                <p>Mr LN Chowdhury is the Chief Financial Officer at iGenesis. He is graduated and post graduated in Commerce(M.Com-Accounts, and MBA(Finance) and Certified Accountant from Apex Institute- Institute of Chartered Accountants of India. Having been associated with Manufacturing- Paper & Pulp, Telecom Operators, Equipment Manufacturer, and Telecom Service Sectors for renowned companies Like Ballarpur Industries Limited, Tata Teleservices Limited, Acme Cleantech Solutions limited, GTL Saudi Arabia Ltd, Genesis Myanmar Ltd for a period of 19 Years+ in the countries in India, Saudi Arabia, and Myanmar at different positions. He is having ample exposure and expertise in the areas of  Auditing and compliance. Risk assessment and governance,  E2E Finance management, and reporting.</p>
+                <p>Ms. Phyo Phyo Zar Chi started her career as Layout Designer for a Publishing house in Yangon, she change her profile to HR & Admin with Golden Zenith Mining and Engineering Company where she worked as HR & Admin Manager. Then further to expand her experience and knowledge she joined Myanmar Mahar Dahna Company with the capacity of Management & Operation Manager, where she worked for Operation and Management of the resources for the Mobile Towers in different location all around Myanmar. From February 2019, with her brilliant experience in Tower Management she joined iGeneis Myanmar as Project Lead. She is a detailed oriented operations manager/project lead with more than 9 years of experience in Team handling with effective communication, problem solving and management skills.</p>
                 <div class="viewCol">
                   <a href="javascript:void(0);">
                     View
