@@ -88,8 +88,8 @@ class FrontendController extends Controller
                         function($message) use ($request){
                         $message->from($request->email);
                         // $message->to('sb@genesismyanmar.com', $request->name)->subject($request->name);
-                        $message->to('info@genesismyanmar.com', $request->name)->subject($request->name);
-                        
+                        $message->to('11lucky46@gmail.com', $request->name)->subject($request->name);
+
                         }
                     );
 
