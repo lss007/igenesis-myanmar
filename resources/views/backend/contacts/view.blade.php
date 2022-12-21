@@ -23,7 +23,9 @@
             <p><b>Phone :</b>   <span class="badge bg-danger">NA</span> </p>
             @endif
 
-            
+               <p><b>Time : </b>{{Carbon\Carbon::parse($view_messages->created_at)->diffForHumans()}}</p>
+
+
             <p><b>Email : </b>{{$view_messages->email}} </p>
             
             <p><b>Subject : </b>{{$view_messages->subject}} </p>
