@@ -55,9 +55,14 @@
         </a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{route('view_our_services')}}">
+          <i class="bi bi-card-image"></i>
+          <span>Manage our services  </span>
+        </a>
+      </li>
 
-
-  
+      
 
      
 

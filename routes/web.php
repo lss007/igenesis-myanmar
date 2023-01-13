@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\AdminPasswordController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\CategoryController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\ManageCvController;
+use App\Http\Controllers\Backend\ManageServicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,10 @@ use App\Http\Controllers\Backend\ManageCvController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+
+
+
 Route::controller(FrontendController::class)->group(function () {
     Route::get('/', 'homepage')->name('front.homepage');
     // about_us
@@ -74,6 +80,17 @@ Route::middleware([
     Route::middleware('admin:admin')->group(function () {
     Route::get('admin/login', [AdminController::class, 'loginForm']);
     Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
+
+
+    Route::get('admin/forget-password', [AdminPasswordController::class, 'getEmail'])->name('reset_admin_password');
+    Route::post('admin/forget-password', [AdminPasswordController::class, 'postEmail'])->name('send_admin_reset_link');
+    Route::get('/admin-reset-password/{token}', [AdminPasswordController::class, 'getPassword'])->name('admin_getPassword');
+  
+    Route::post('/admin-reset-password', [AdminPasswordController::class, 'updatePassword'])->name('admin_updatePassword');
+  
+
+
+  
 });
 
 Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'verified'
@@ -190,6 +207,29 @@ Route::get('/deleteblog/{id}','removeblog')->name('user.remove.blog');
     });
 
 
+    Route::prefix('services')->group(function(){
+        Route::controller(ManageServicesController::class)->group(function () {
+            Route::get('/view','view_services')->name('view_our_services');
+            Route::get('/add','add_services')->name('add_our_services');
+            Route::post('/store','storeServices')->name('store_our_services');
+            // approvedpost  
+            Route::get('/active/{id}','services_active')->name('our_services_active');
+            // approvedpost  
+            Route::get('/inactive/{id}','services_inactive')->name('our_services_inactive');
+            Route::get('/delete/{id}','services_delete')->name('our_services_delete');
+            Route::get('/edit/{id}','services_edit')->name('our_services_edit');
+            Route::post('/update/{id}','update_services')->name('update_our_services');
+
+
+            
+
+            
+
+                        
+            
+
+        });
+    });
 
 // ========== admin prefix ===========
     });
@@ -197,4 +237,6 @@ Route::get('/deleteblog/{id}','removeblog')->name('user.remove.blog');
 });
 //  ============================= CategoryController =======================
 
- 
+
+
+

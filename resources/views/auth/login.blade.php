@@ -25,6 +25,9 @@
                     {{ session('status') }}
                 </div>
             @endif
+      
+
+          
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
                   <img src="assets/img/logo.png" alt="">
                   <span class="d-none d-lg-block"> Login</span>
@@ -35,7 +38,11 @@
               <div class="card mb-3">
 
                 <div class="card-body">
-
+                  @if (session('message'))
+                  <div class="text-success">
+                      {{ session('message') }}
+                  </div>
+              @endif
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
                     <p class="text-center small">Enter your username & password to login</p>
@@ -71,11 +78,11 @@
                     </div>
                     <div class="col-12">
                       <p class="small mb-0">Don't have account? <a href="#">Create an account</a></p>
-                      @if (Route::has('password.request'))
-                      <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+
+                      <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{route('reset_admin_password')}}">
                           {{ __('Forgot your password?') }}
                       </a>
-                  @endif
+          
                     </div>
                   </form>
 

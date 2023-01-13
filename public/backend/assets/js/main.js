@@ -131,7 +131,7 @@
   }
 
   if (select('.quill-editor-full')) {
-    new Quill(".quill-editor-full", {
+  new Quill(".quill-editor-full", {
       modules: {
         toolbar: [
           [{
@@ -176,6 +176,7 @@
       },
       theme: "snow"
     });
+  
   }
 
   /**
