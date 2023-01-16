@@ -1,5 +1,5 @@
 @extends('backend.body.adminmaster')
-@section('title', 'Add Services')
+@section('title', 'Edit Team')
 @section('content')
 
 @include('backend.body.breadcrumb')
@@ -10,16 +10,16 @@
         <div class="row">
             <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Add Services</h5>
+                  <h5 class="card-title">Edit services </h5>
     
                   <!-- Floating Labels Form -->
-                  <form class="row g-3"  action="{{route('store_our_services')}}" enctype="multipart/form-data" method="post">
+                  <form class="row g-3"  action="{{route('update_our_team',$edit_our_team->id)}}" enctype="multipart/form-data" method="post">
                     @csrf
              
                     <div class="col-md-6">
                         <div class="col-md-12">
                           <div class="form-floating">
-                            <input type="text" class="form-control" name="name"  placeholder="name">
+                            <input type="text" class="form-control" name="name" value="{{$edit_our_team->name}}" placeholder="name">
                             <label for="title">Name </label>
                             @error('name')
                             <span class="text-danger">{{ $message }}</span>
@@ -33,7 +33,7 @@
                       <div class="col-md-6">
                         <div class="col-md-12">
                           <div class="form-floating">
-                            <input type="text" class="form-control" name="position" id="position" placeholder="name">
+                            <input type="text" class="form-control" name="position" value="{{$edit_our_team->position}}" id="position" placeholder="name">
                             <label for="title">position </label>
                             @error('position')
                             <span class="text-danger">{{ $message }}</span>
@@ -41,16 +41,24 @@
                           </div>
                         </div>
                       </div>
-                  
+                      <div class="col-md-6">
+                        <div class="col-md-12">
+                          <div class="form-floating">
+                            <input type="number" class="form-control" name="order_no" id="order_no" value="{{$edit_our_team->order_no}}" placeholder="order no">
+                            <label for="title">Order Number </label>
+                            @error('order_no')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                          </div>
+                        </div>
+                      </div>
                           <h5 class="card-title">Description</h5>
-            
-                          <!-- Quill Editor Full -->
-                         
-                          <!-- TinyMCE Editor -->
-              <textarea class="tinymce-editor"  name="description">
-           
-              </textarea><!-- End TinyMCE Editor -->
-                          <!-- End Quill Editor Full -->
+    
+                            <textarea class="tinymce-editor"  name="description"  >{{$edit_our_team->description}}
+                        
+                            </textarea>
+                           
+                                  
             
           
                
@@ -63,9 +71,9 @@
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                     <div class="form-group">
-                        <img id="output" src="{{asset('assets/no_image.jpg')}}" height="100">
+                 
+                        <img id="output" src="{{isset($edit_our_team->image) ? asset('assets/ourteam/'.$edit_our_team->image) : asset('assets/no_image.jpg')}}" alt="{{$edit_our_team->title}}" width="200">
                     </div>
-
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary">Submit</button>
                       <button type="reset" class="btn btn-secondary">Reset</button>

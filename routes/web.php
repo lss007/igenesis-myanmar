@@ -11,7 +11,8 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\ManageCvController;
-use App\Http\Controllers\Backend\ManageServicesController;
+use App\Http\Controllers\Backend\ManageTeamController;
+use App\Http\Controllers\Backend\ServicesConstoller;
 
 /*
 |--------------------------------------------------------------------------
@@ -164,70 +165,72 @@ Route::get('/delete-messages/{id}','deleteMessages')->name('delete.contact.messa
 });
 
 //===================== Blog post by admin routes start =====================
-Route::prefix('blog/')->group(function(){
-    Route::controller(BlogController::class)->group(function () {
-    Route::get('/add','addPost')->name('admin.blogpost');
-    // my blogs 
-    Route::get('/myblogs','viewmyblogs')->name('admin.view.myblog');
-    // add blog post 
-    Route::post('/publish','publishPost')->name('user.publish.post');
-    // edit blog 
-    Route::get('/edit/{id}','editPost')->name('user.edit.post');
-    //update blog post 
-    Route::post('/update/{id}','updatepost')->name('user.update.post');
-    // delete post 
-    Route::get('/delete/{id}','deletepost')->name('user.delete.post');   
-});
-});
+    Route::prefix('blog/')->group(function(){
+        Route::controller(BlogController::class)->group(function () {
+            Route::get('/add','addPost')->name('admin.blogpost');
+            // my blogs 
+            Route::get('/myblogs','viewmyblogs')->name('admin.view.myblog');
+            // add blog post 
+            Route::post('/publish','publishPost')->name('user.publish.post');
+            // edit blog 
+            Route::get('/edit/{id}','editPost')->name('user.edit.post');
+            //update blog post 
+            Route::post('/update/{id}','updatepost')->name('user.update.post');
+            // delete post 
+            Route::get('/delete/{id}','deletepost')->name('user.delete.post');   
+        });
+    });
 //===================== Blog post by admin routes start  =====================
 
 //  ============================= end contact=======================
 
 //  ============================= CategoryController =======================
-Route::prefix('category')->group(function(){
-Route::controller(CategoryController::class)->group(function () {
-Route::get('/view','viewCategory')->name('view.blog.category');
-// add category 
-Route::post('/add','addCategory')->name('add.blog.category');
-Route::get('/edit/{id}','editCategory')->name('edit.blog.category');
-// update 
-Route::post('/update/{id}','updateCategory')->name('update.blog.category');
-//Delete category 
-Route::get('/delete/{id}','deleteCategory')->name('delete.blog.category');
-// approvedpost  
-Route::get('/approved/{id}','approvedpost')->name('user.approved.post');
-// approvedpost  
-Route::get('/rejected/{id}','rejectedpost')->name('user.rejected.post');
+    Route::prefix('category')->group(function(){
+        Route::controller(CategoryController::class)->group(function () {
+            Route::get('/view','viewCategory')->name('view.blog.category');
+            // add category 
+            Route::post('/add','addCategory')->name('add.blog.category');
+            Route::get('/edit/{id}','editCategory')->name('edit.blog.category');
+            // update 
+            Route::post('/update/{id}','updateCategory')->name('update.blog.category');
+            //Delete category 
+            Route::get('/delete/{id}','deleteCategory')->name('delete.blog.category');
+            // approvedpost  
+            Route::get('/approved/{id}','approvedpost')->name('user.approved.post');
+            // approvedpost  
+            Route::get('/rejected/{id}','rejectedpost')->name('user.rejected.post');
 
-Route::get('/deleteblog/{id}','removeblog')->name('user.remove.blog');
-
-
-
-    });
+            Route::get('/deleteblog/{id}','removeblog')->name('user.remove.blog');
+        });
     });
 
 
-    Route::prefix('services')->group(function(){
-        Route::controller(ManageServicesController::class)->group(function () {
+    Route::prefix('our-team')->group(function(){
+        Route::controller(ManageTeamController::class)->group(function () {
+            Route::get('/view','view_team')->name('view_our_team');
+            Route::get('/add','add_team')->name('add_our_team');
+            Route::post('/store','store_team')->name('store_our_team');
+            Route::get('/active/{id}','team_active')->name('our_team_active'); 
+            Route::get('/inactive/{id}','team_inactive')->name('our_team_inactive');
+            Route::get('/delete/{id}','team_delete')->name('our_team_delete');
+            Route::get('/edit/{id}','team_edit')->name('our_team_edit');
+            Route::post('/update/{id}','update_team')->name('update_our_team');
+
+        });
+    });
+
+    Route::prefix('our-services')->group(function(){
+        Route::controller(ServicesConstoller::class)->group(function () {
             Route::get('/view','view_services')->name('view_our_services');
             Route::get('/add','add_services')->name('add_our_services');
-            Route::post('/store','storeServices')->name('store_our_services');
-            // approvedpost  
-            Route::get('/active/{id}','services_active')->name('our_services_active');
-            // approvedpost  
+            Route::post('/store','store_services')->name('store_our_services');
+            Route::get('/active/{id}','services_active')->name('our_services_active'); 
             Route::get('/inactive/{id}','services_inactive')->name('our_services_inactive');
             Route::get('/delete/{id}','services_delete')->name('our_services_delete');
             Route::get('/edit/{id}','services_edit')->name('our_services_edit');
             Route::post('/update/{id}','update_services')->name('update_our_services');
 
-
             
-
-            
-
-                        
-            
-
         });
     });
 

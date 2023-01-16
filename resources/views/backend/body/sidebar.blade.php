@@ -24,7 +24,7 @@
       
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('contact.messages')}}">
+        <a class="nav-link collapsed" href="{{route('contact.messages')}}"  >
           <i class="bi bi-messenger"></i><span>View Messages</span>
         </a>
       
@@ -40,7 +40,6 @@
           <span>Add Blog Category</span>
         </a>
       </li>
-      
       <!-- End Profile Page Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('admin.view.myblog')}}">
@@ -48,6 +47,7 @@
           <span>View Blogs </span>
         </a>
       </li>
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('admin.manageResume')}}">
           <i class="bi bi-card-image"></i>
@@ -56,12 +56,19 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('view_our_services')}}">
+        <a class="nav-link collapsed" href="{{route('view_our_team')}}">
           <i class="bi bi-card-image"></i>
-          <span>Manage our services  </span>
+          <span>Manage Our Team  </span>
         </a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{route('view_our_services')}}">
+          <i class="bi bi-card-image"></i>
+          <span>Manage Our Services </span>
+        </a>
+      </li>
+      
       
 
      
