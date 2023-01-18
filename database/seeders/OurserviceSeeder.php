@@ -16,7 +16,7 @@ class OurServiceSeeder extends Seeder
     public function run()
     {
         //
-
+// added 
         /* `igenesis-myanmar`.`our_services` */
 $our_services = array(
     array('title' => 'NETWORK PLANNING & DESIGN','description' => 'NPD services deliver value by designing the high Quality of network to support the current and future technology and capacity requirements of the operators. To satisfy this, iGenesis use technology expertise, sophisticated algorithms, world-class tools and disciplined design processes to provide end-to-end, multi-vendor design solutions. NPD services cover Radio Frequency (RF) and Transmission Engineering, Fixed and Core Network Engineering for GSM, CDMA, Microwave Transmission, SDH, DWDM, WiMAX and Broadband networks.','image' => '1673872355.svg','order_no' => '1','status' => '1','created_at' => now(),'updated_at' =>now()),
