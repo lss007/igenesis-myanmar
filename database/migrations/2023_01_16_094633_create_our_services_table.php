@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
             $table->string('image')->nullable();
-            $table->string('order_no')->nullable();
-            $table->string('status')->nullable()->default(1);
+            $table->integer('order_no')->nullable();
+            $table->integer('status')->nullable()->default(1);
             $table->timestamps();
         });
     }

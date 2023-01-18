@@ -30,9 +30,6 @@
             
               <h5 class="card-title">@yield('title')</h5>
               <a href="{{route('add_our_services')}}" class="btn btn-success rounded-pill">Add Services</a>
-      
-            
-
             <!-- Table with stripped rows -->
             <table class="table datatable">
               <thead>
@@ -66,7 +63,7 @@
                   <td width="20%" class="bg-dark text-center">
                     <img src="{{(isset($value->image)) 
                     ? asset('assets/services/'.$value->image) :asset('no_image.jpg')}}" 
-                    alt="{{$value->title}}" width="100">
+                    alt="{{$value->title}}" style=" width: 50px;">
                   </td>
                   <td width="5%">
                     @if($value->status == '1')
@@ -110,27 +107,19 @@
                         <h5> Description:</h5>
                       <p> {!! html_entity_decode($value->description)!!}</p>
                   </div>
-           
                 </div>
               </div>
             </div><!-- End Large Modal-->
                       <a href="{{route('our_services_edit',$value->id)}} " class="btn btn-primary">
                         <i class="bi bi-pencil-square"></i>
                       </a>
-
                       <a href="{{route('our_services_delete',$value->id)}} " class="btn btn-primary">
-
                       <i class="bi bi-trash"></i>
                     </a>
-                
-               
-                
-                
                 </td>
-
                 </tr>
-        @endforeach
-        @endif
+                @endforeach
+                @endif
               </tbody>
             </table>
             <!-- End Table with stripped rows -->

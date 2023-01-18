@@ -1,4 +1,9 @@
 <footer>
+
+  @php
+    
+    $getAddress=  DB::table('contact_addresses')->where('status',1)->first();
+  @endphp
     <div class="footerSection">
       <div class="footerTopShape">
         <img src="{{asset('assets/images/footer-top-shape.svg')}}" alt="...">
@@ -50,7 +55,10 @@
                 <div class="col-md-4">
                   <div class="footerCol">
                     <h2>Contact Details</h2>
-                    <p class="text-white">iGenesis Technologies Ltd (Myanmar) No-18, Ground Floor, Block B, Min Yae Kyaw Swar Condo, Min Yae Kyaw Swar street, 14th quarter, Yankin Township, Yangon</p>
+                    <p class="text-white">
+                      {{$getAddress->address}}
+                      
+                     </p>
                   </div>
                 </div>
               </div>

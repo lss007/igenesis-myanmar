@@ -61,7 +61,7 @@
                     {{-- view Message --}}
 
 
-                      <a href="{{route('delete.contact.messages',$value->id)}}"  id="delete" class="btn btn-primary">
+                      <a href="{{route('delete.contact.messages',$value->id)}}"   class="btn btn-primary">
                       <i class="bi bi-trash" ></i>
                     </a>
 

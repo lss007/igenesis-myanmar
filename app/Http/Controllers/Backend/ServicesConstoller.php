@@ -30,7 +30,7 @@ class ServicesConstoller extends Controller
 
             if($request->file('image')){
                     $service_img =  $request->file('image');
-                    $imageName = time().'.'.$service_img->getClientOriginalExtension();  
+                    $imageName = hexdec(uniqid()).'.'.$service_img->getClientOriginalExtension();  
                     $service_img->move(public_path('assets/services/'), $imageName);
                 }
                 $storeServices   = new OurService();
@@ -95,7 +95,7 @@ class ServicesConstoller extends Controller
                     }
 
                     $service_img =  $request->file('image');
-                    $imageName = time().'.'.$service_img->getClientOriginalExtension();  
+                    $imageName = hexdec(uniqid()).'.'.$service_img->getClientOriginalExtension();  
                     $service_img->move(public_path('assets/services/'), $imageName);
          
                 $storeServices   =  OurService::find($id);

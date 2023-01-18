@@ -6,8 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\BlogPost;
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\ContactAddress;
+use App\Models\OurCustomers;
+use App\Models\OurService;
 use App\Models\OurTeam;
 use App\Models\ResumeRecord;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 use Illuminate\Support\Facades\Storage;
@@ -16,8 +20,12 @@ class FrontendController extends Controller
 {
     //Home page 
     public function homepage(){
+
         $outTeamData['get_our_team']  = OurTeam::where('status',1)->orderby('order_no')->get();
-        return view('frontend.index' ,$outTeamData);
+        $getServices['get_Services'] = OurService::where('status',1)->orderby('order_no')->get();
+
+        
+        return view('frontend.index', [ $outTeamData,$getServices ]);
     }
     //about us 
     public function aboutUs(){

@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\CategoryController;
 
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\CustomersConstroller;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\ManageCvController;
 use App\Http\Controllers\Backend\ManageTeamController;
@@ -81,16 +82,10 @@ Route::middleware([
     Route::middleware('admin:admin')->group(function () {
     Route::get('admin/login', [AdminController::class, 'loginForm']);
     Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
-
-
     Route::get('admin/forget-password', [AdminPasswordController::class, 'getEmail'])->name('reset_admin_password');
     Route::post('admin/forget-password', [AdminPasswordController::class, 'postEmail'])->name('send_admin_reset_link');
     Route::get('/admin-reset-password/{token}', [AdminPasswordController::class, 'getPassword'])->name('admin_getPassword');
-  
     Route::post('/admin-reset-password', [AdminPasswordController::class, 'updatePassword'])->name('admin_updatePassword');
-  
-
-
   
 });
 
@@ -101,25 +96,20 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
     })->name('dashboard')->middleware('auth:admin');
 });
 
-Route::get('logout',[AdminController::class,'destroy'])->name('admin.logout')->middleware('auth:admin');
-Route::get('/logout/user', [AdminController::class,'Logout'])->name('user.logout');
-
-// change password 
-Route::get('change/admin-password',[AdminController::class,'admin_change_password'])->name('admin.change.password');
-
-// update.admin.password
-
-Route::post('update/admin-password',[AdminController::class,'admin_update_password'])->name('update.admin.password');
+    Route::get('logout',[AdminController::class,'destroy'])->name('admin.logout')->middleware('auth:admin');
+    Route::get('/logout/user', [AdminController::class,'Logout'])->name('user.logout');
+    // change password 
+    Route::get('change/admin-password',[AdminController::class,'admin_change_password'])->name('admin.change.password');
+    // update.admin.password
+    Route::post('update/admin-password',[AdminController::class,'admin_update_password'])->name('update.admin.password');
 
 //  ============================= Start slider routes =======================
 Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'verified'
 ])->group(function () {
 Route::prefix('admin')->group(function(){
     // Manage CV controoler 
-    
     Route::controller(ManageCvController::class)->group(function () {
     Route::get('/manage-resume','manageResume')->name('admin.manageResume');
-
     Route::get('/delete-resume/{id}','deleteResume')->name('admin.deleteResume');
 
     });
@@ -132,34 +122,52 @@ Route::controller(ProfileController::class)->group(function () {
     });
 
 Route::controller(SliderController::class)->group(function () {
-Route::get('/viewsliders','viewslider')->name('admin.homeslider');
-// Manage slider 
-Route::get('/addsliders','add_slider')->name('admin.addslider');
-// store slider 
-Route::post('/store-slider','store_slider')->name('admin.store.slider');
-// edit.slider
-Route::get('/edit-slider/{id}','edit_slider')->name('admin.edit.slider');
-// update slider 
-Route::post('/update-slider/{id}','update_frontend_slider')->name('admin.update.slider');
-// inactive slider 
-Route::get('/inactive-slider/{id}','inactive_frontend_slider')->name('admin.inactive.slider');
-// Active slider 
-Route::get('/active-slider/{id}','active_frontend_slider')->name('admin.active.slider');
-//delete slider 
-Route::get('/delete-slider/{id}','delete_frontend_slider')->name('admin.delete.slider');
+        Route::get('/viewsliders','viewslider')->name('admin.homeslider');
+        // Manage slider 
+        Route::get('/addsliders','add_slider')->name('admin.addslider');
+        // store slider 
+        Route::post('/store-slider','store_slider')->name('admin.store.slider');
+        // edit.slider
+        Route::get('/edit-slider/{id}','edit_slider')->name('admin.edit.slider');
+        // update slider 
+        Route::post('/update-slider/{id}','update_frontend_slider')->name('admin.update.slider');
+        // inactive slider 
+        Route::get('/inactive-slider/{id}','inactive_frontend_slider')->name('admin.inactive.slider');
+        // Active slider 
+        Route::get('/active-slider/{id}','active_frontend_slider')->name('admin.active.slider');
+        //delete slider 
+        Route::get('/delete-slider/{id}','delete_frontend_slider')->name('admin.delete.slider');
 
 });
 //  ============================= end slider routes =======================
 //  ============================= endcontact =======================
 Route::prefix('contact')->group(function(){
     Route::controller(ContactController::class)->group(function () {
-// contact message 
-Route::get('/messages','contactMessages')->name('contact.messages');
-//view message 
-Route::get('/view-messages/{id}','viewMessages')->name('view.contact.messages');
+        // contact message 
+        Route::get('/messages','contactMessages')->name('contact.messages');
+        //view message 
+        Route::get('/view-messages/{id}','viewMessages')->name('view.contact.messages');
+        // admin delete contact
+        Route::get('/delete-messages/{id}','deleteMessages')->name('delete.contact.messages');
+        // view contact address
+        Route::get('/view-address','view_address')->name('view_contact_address');
 
-// admin.delete.contact
-Route::get('/delete-messages/{id}','deleteMessages')->name('delete.contact.messages');
+        Route::get('/add-address','add_address')->name('add_contact_address');
+
+        Route::post('/store-address','store_address')->name('store_contact_address');
+        // contact address active
+        Route::get('/active/{id}','address_active')->name('contact_address_active'); 
+        // contact address inactive
+        Route::get('/inactive/{id}','address_inactive')->name('contact_address_inactive');
+        // edit address
+        Route::get('/edit/{id}','address_edit')->name('contact_address_edit');
+        Route::post('/update/{id}','update_address')->name('update_contact_address');
+
+        Route::get('/delete/{id}','address_delete')->name('contact_address_delete');
+
+
+        
+        
 
 });
 });
@@ -233,7 +241,23 @@ Route::get('/delete-messages/{id}','deleteMessages')->name('delete.contact.messa
             
         });
     });
+    // getcustomer
 
+    Route::prefix('our-customer')->group(function(){
+        Route::controller(CustomersConstroller::class)->group(function () {
+            Route::get('/view','view_customer')->name('view_our_customer');
+            Route::get('/add','add_customer')->name('add_our_customer');
+            Route::post('/store','store_customers')->name('store_our_customers');
+            Route::get('/active/{id}','active_customers')->name('our_active_customers'); 
+            Route::get('/inactive/{id}','inactive_customers')->name('our_inactive_customers');
+            Route::get('/delete/{id}','delete_customers')->name('delete_our_customers');
+            Route::get('/edit/{id}','edit_customers')->name('edit_our_customers');
+            Route::post('/update/{id}','update_customers')->name('update_our_customers');
+            Route::post('post-sortable','update_order')->name('updateArticle');
+        });
+        Route::DELETE('/alldelete', [CustomersConstroller::class, 'allDelete'])->name('all.delete');
+
+    });
 // ========== admin prefix ===========
     });
 // ==========admin prefix ===========
