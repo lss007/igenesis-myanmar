@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\OurService;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class OurServiceSeeder extends Seeder
 {
@@ -32,7 +33,7 @@ $our_services = array(
   );
   
   foreach ( $our_services as $key => $name) {
-    OurService::create($name);
+    DB::table('our_services')->create($name);
 }
     }
 }
