@@ -33,7 +33,7 @@ $our_services = array(
   );
   
   foreach ( $our_services as $key => $name) {
-    DB::table('our_services')->create($name);
+    DB::table('our_services')->insert($name);
 }
     }
 }
