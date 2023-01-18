@@ -63,7 +63,7 @@
                 <div class="col-md-4">
                   <div class="footerCol">
                     <h2>Contact Details</h2>
-                    <p class="text-white">{{$getAddress->address}}</p>
+                    <p class="text-white">{{ isset($getAddress->address) ? $getAddress->address : 'NA'}}</p>
                   </div>
                 </div>
               </div>
