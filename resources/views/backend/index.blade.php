@@ -153,7 +153,10 @@
                         <th scope="row"><a href="#">{{$key +1}}</a></th>
                         <td>{{$values->user->name}}</td>
                         <td><a href="#" class="text-primary">
-                          {{Str::limit(	$values->summary,200,$end='....')}}
+                          {{-- {{Str::limit(	$values->summary,200,$end='....')}} --}}
+
+
+                          {!!html_entity_decode(str_limit($values->summary, $limit=200 ) )!!}
                         </a></td>
                         <td><img src="{{asset($values->image)}}" alt="{{$values->image}}" width="100"></td>
                         <td> {{Carbon\Carbon::parse($values->created_at)->diffforHumans()}}</td>
