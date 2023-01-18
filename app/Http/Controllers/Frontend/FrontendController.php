@@ -42,7 +42,9 @@ class FrontendController extends Controller
     
     // services
     public function services(){
-        $getServices = OurService::where('status',1)->orderby('order_no')->get();
+        // $getServices = OurService::where('status',1)->orderby('order_no')->get();
+        $getServices = DB::table('our_services')->where('status',1)
+        ->orderby('order_no','ASC')->get();
         $getCoustomer = DB::table('our_customers')->where('status',1)
         ->orderby('order_no','ASC')->get();
         return view('frontend.services',compact('getServices','getCoustomer'));
