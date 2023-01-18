@@ -55,32 +55,32 @@ class ServicesConstoller extends Controller
 
              // inactive
             public function services_inactive($id){
-                $inactive  =  OurService::find($id);
+                $inactive  =  DB::table('our_services')->where('id',$id)->first();
                 $inactive->status = '0';
                 $inactive->save();
                 return  redirect()->back()->with('error', 'Service  Inactive');
 
         }
             public function services_delete($id){
-                $getimg  = OurService::find($id);
+                $getimg  = DB::table('our_services')->where('id',$id)->first();
                 $imagePath = public_path('assets/services/'. $getimg->image);
                 // if(File::exists($imagePath) && isset( $getimg->image)){
                 //     unlink($imagePath);
                 // } 
-                $deleteservice  =  OurService::find($id);
+                $deleteservice  =  DB::table('our_services')->where('id',$id)->first();
                 $deleteservice->delete();
                 return  redirect()->back()->with('error', 'Service  Deletd');
             }
 
             public function services_edit($id){
-                $editOurservices['edit_services'] = OurService::find($id);
+                $editOurservices['edit_services'] = DB::table('our_services')->where('id',$id)->first();
                 return view('backend.ourservices.edit',$editOurservices);
             }
 
             public function update_services(Request  $request, $id ){
 
                 if($request->file('image')){
-                    $getimg  = OurService::find($id);
+                    $getimg  = DB::table('our_services')->where('id',$id)->first();
                     $imagePath = public_path('assets/services/'. $getimg->image);
 
                     if(File::exists($imagePath) && isset( $getimg->image)){
@@ -91,14 +91,14 @@ class ServicesConstoller extends Controller
                     $imageName = hexdec(uniqid()).'.'.$service_img->getClientOriginalExtension();  
                     $service_img->move(public_path('assets/services/'), $imageName);
          
-                $storeServices   =  OurService::find($id);
+                $storeServices   =  DB::table('our_services')->where('id',$id)->first();
                 $storeServices->image =  $imageName;
  
                 $storeServices->save();
                 return redirect()->route('view_our_services')->with('success', 'Service added Sucessfull');
                     return redirect()->route('view_our_services')->with('success', 'Service updated Sucessfull');
                 }else {
-                    $updateServices   =  OurService::find($id);
+                    $updateServices   =  DB::table('our_services')->where('id',$id)->first();
                     $updateServices->title =  $request->title;
                     $updateServices->description =  $request->description;
                     $updateServices->order_no =  $request->order_no;
