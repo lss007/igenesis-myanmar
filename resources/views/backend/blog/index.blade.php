@@ -62,9 +62,7 @@
                     @error('image')
                     <span class=" text-danger">{{ $message }}</span>
                     @enderror
-                    @error('image')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
+          
                     <div class="form-group">
                         <img id="output" src="{{asset('assets/no_image.jpg')}}" height="100">
                     </div>

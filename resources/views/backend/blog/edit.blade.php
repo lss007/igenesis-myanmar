@@ -50,7 +50,9 @@
                   
                     <div class="col-12">
                       <div class="form-floating">
-                        <textarea class="form-control" placeholder="Blog Summary" id="summary" name="summary" style="height: 100px;">{{$editBlogpost->summary}}</textarea>
+                        {{-- <textarea class="form-control" placeholder="Blog Summary" id="summary" name="summary" style="height: 100px;">{{$editBlogpost->summary}}</textarea> --}}
+                        <textarea class="tinymce-editor"  name="summary" style="height: 200px;" id="summary" >{{$editBlogpost->summary}}</textarea>
+
                         <label for="summary">Blog Summary	</label>
                         @error('summary')
                         <span class="text-danger">{{ $message }}</span>

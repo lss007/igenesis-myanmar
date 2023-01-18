@@ -46,7 +46,7 @@
                     <!-- Quill Editor Full -->
                     <div class="col-md-12">
                         <div class="form-floating">
-                            <textarea class="form-control" name="description" placeholder="description" id="description" style="height: 100px;"></textarea>
+                            <textarea class="form-control" name="description" placeholder="description" id="description" style="height: 200px;"></textarea>
                             <label for="description">Services Description </label>
                         </div>
                         @error('description')

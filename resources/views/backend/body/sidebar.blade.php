@@ -100,6 +100,14 @@
             </a>
           
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('view_social_link')}}"  >
+      
+              <span>Manage Social links</span>
+            </a>
+          
+          </li>
         </ul>
       </li><!-- End Contact Nav -->
 

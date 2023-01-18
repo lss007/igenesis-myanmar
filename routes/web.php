@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\ManageCvController;
 use App\Http\Controllers\Backend\ManageTeamController;
 use App\Http\Controllers\Backend\ServicesConstoller;
+use App\Http\Controllers\Backend\SocialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -256,6 +257,21 @@ Route::prefix('contact')->group(function(){
             Route::post('post-sortable','update_order')->name('updateArticle');
         });
         Route::DELETE('/alldelete', [CustomersConstroller::class, 'allDelete'])->name('all.delete');
+
+    });
+
+    
+
+    Route::prefix('Mange-sociallink')->group(function(){
+        Route::controller(SocialController::class)->group(function () {
+            Route::get('/view','view_social')->name('view_social_link');
+            Route::post('/store','store_link')->name('store_social_link');
+            Route::get('/active/{id}','link_active')->name('link_active'); 
+            Route::get('/inactive/{id}','link_inactive')->name('link_inactive');
+            Route::get('/delete/{id}','delete_link')->name('delete_social_link');
+            Route::get('/edit/{id}','edit_link')->name('edit_social_link');
+            Route::post('/update/{id}','update_link')->name('update_social_link');
+        });
 
     });
 // ========== admin prefix ===========

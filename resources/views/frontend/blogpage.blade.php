@@ -42,7 +42,9 @@
 
 
             <p class="card-text blog_text justify-content-between">
-               {{Str::limit(	$blogs->summary,200,$end='....')}}
+         
+
+               {!!html_entity_decode(str_limit($blogs->summary, $limit=200 ) )!!}
             </p>
 
              <p class="text-left">&nbsp;<i class="fa fa-clock-o" aria-hidden="true"></i> Posted on: 6 months ago </p>

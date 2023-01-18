@@ -1,6 +1,8 @@
 <footer>
   @php
     $getAddress=  DB::table('contact_addresses')->where('status',1)->first();
+    $getSociallink =  DB::table('sociallinks')->where('status',1)->get();
+        
   @endphp
     <div class="footerSection">
       <div class="footerTopShape">
@@ -16,9 +18,17 @@
                 </div>
                  <div class="socialLinks d-none d-lg-block">
                   <ul>
-                    <li><a href="https://www.facebook.com/GenesisTechnologyMyanmar" target="_blank"><img src="{{asset('assets/images/facebook-icon2.svg')}}" alt="..."></a></li>
+                    {{-- <li><a href="https://www.facebook.com/GenesisTechnologyMyanmar" target="_blank"><img src="{{asset('assets/images/facebook-icon2.svg')}}" alt="..."></a></li>
                     <!-- <li><a href="javascript:void(0);"><img src="{{asset('assets/images/twitter-icon2.svg')}}" alt="..."></a></li> -->
-                    <li><a href="https://mm.linkedin.com/company/igenesis-technologies-ltd-myanmar" target="_blank"><img src="{{asset('assets/images/linkedin-icon2.svg')}}" alt="..."></a></li>
+                    <li><a href="https://mm.linkedin.com/company/igenesis-technologies-ltd-myanmar" target="_blank"><img src="{{asset('assets/images/linkedin-icon2.svg')}}" alt="..."></a></li> --}}
+                    @if(isset($getSociallink))
+                    @foreach ($getSociallink  as  $getlink)
+                    <li><a href="{{isset($getlink->link) ? $getlink->link : '#'}}" target="_blank"><img src="{{asset('assets/sociallogo/'.$getlink->logo)}}" alt="..."></a></li>
+                      
+                    @endforeach
+                  @else
+                  
+                  @endif
                   </ul>
                 </div>
               </div>
@@ -61,9 +71,14 @@
           </div>
           <div class="socialLinks d-block d-lg-none">
             <ul>
-              <li><a href="https://www.facebook.com/GenesisTechnologyMyanmar" target="_blank"><img src="{{asset('assets/images/facebook-icon2.svg')}}" alt="..."></a></li>
-              <!-- <li><a href="javascript:void(0);"><img src="{{asset('assets/images/twitter-icon2.svg')}}" alt="..."></a></li> -->
-              <li><a href="https://mm.linkedin.com/company/igenesis-technologies-ltd-myanmar" target="_blank"><img src="{{asset('assets/images/linkedin-icon2.svg')}}" alt="..."></a></li>
+              @if(isset($getSociallink))
+                    @foreach ($getSociallink  as  $getlink)
+                      <li><a href="{{isset($getlink->link) ? $getlink->link : '#'}}" target="_blank"><img src="{{asset('assets/sociallogo/'.$getlink->logo)}}" alt="..."></a></li>
+                    @endforeach
+                  @else
+                  @endif
+              {{-- <!-- <li><a href="javascript:void(0);"><img src="{{asset('assets/images/twitter-icon2.svg')}}" alt="..."></a></li> --> --}}
+              {{-- <li><a href="https://mm.linkedin.com/company/igenesis-technologies-ltd-myanmar" target="_blank"><img src="{{asset('assets/images/linkedin-icon2.svg')}}" alt="..."></a></li> --}}
             </ul>
           </div>
         </div>
