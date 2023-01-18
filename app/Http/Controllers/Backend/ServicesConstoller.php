@@ -34,41 +34,49 @@ class ServicesConstoller extends Controller
                     $imageName = hexdec(uniqid()).'.'.$service_img->getClientOriginalExtension();  
                     $service_img->move(public_path('assets/services/'), $imageName);
                 }
-                $storeServices   = new OurService();
-                $storeServices->image =  $imageName;
-                $storeServices->title =  $request->title;
-                $storeServices->description =  $request->description;
-                $storeServices->order_no =  $request->tiorder_notle;
-                $storeServices->save();
+                // $storeServices   = new OurService();
+                // $storeServices->image =  $imageName;
+                // $storeServices->title =  $request->title;
+                // $storeServices->description =  $request->description;
+                // $storeServices->order_no =  $request->order_no;
+                // $storeServices->save();
+           DB::table('our_services')->insert([
+                    'image' =>    $imageName ,
+                    'title' =>   $request->title,
+                    'description' =>   $request->description,
+                    'order_no' =>   $request->order_no,
+                    ]);
+    
                 return redirect()->route('view_our_services')->with('success', 'Service added Sucessfull');
 
     }
 
              // active
             public function services_active($id){
-                $active  =   DB::table('our_services')->where('id',$id)->first();
-                $active->status = '1';
-                $active->save();
+               DB::table('our_services')->where('id',$id)->update([
+                    'status' => '1',
+                ]);
+      
                 return  redirect()->back()->with('sucess', 'Service   Active');
 
         }
 
              // inactive
             public function services_inactive($id){
-                $inactive  =  DB::table('our_services')->where('id',$id)->first();
-                $inactive->status = '0';
-                $inactive->save();
+                DB::table('our_services')->where('id',$id)->update([
+                    'status' => '0',
+                ]);
                 return  redirect()->back()->with('error', 'Service  Inactive');
 
         }
             public function services_delete($id){
                 $getimg  = DB::table('our_services')->where('id',$id)->first();
                 $imagePath = public_path('assets/services/'. $getimg->image);
-                // if(File::exists($imagePath) && isset( $getimg->image)){
-                //     unlink($imagePath);
-                // } 
-                $deleteservice  =  DB::table('our_services')->where('id',$id)->first();
-                $deleteservice->delete();
+                if(File::exists($imagePath) && isset( $getimg->image)){
+                    unlink($imagePath);
+                } 
+                DB::table('our_services')->where('id',$id)->delete();
+    
                 return  redirect()->back()->with('error', 'Service  Deletd');
             }
 
@@ -91,18 +99,20 @@ class ServicesConstoller extends Controller
                     $imageName = hexdec(uniqid()).'.'.$service_img->getClientOriginalExtension();  
                     $service_img->move(public_path('assets/services/'), $imageName);
          
-                $storeServices   =  DB::table('our_services')->where('id',$id)->first();
-                $storeServices->image =  $imageName;
- 
-                $storeServices->save();
-                return redirect()->route('view_our_services')->with('success', 'Service added Sucessfull');
-                    return redirect()->route('view_our_services')->with('success', 'Service updated Sucessfull');
+
+                DB::table('our_services')->where('id',$id)->update([
+                    'image' =>    $imageName,
+                    ]);
+   
+                return redirect()->route('view_our_services')->with('success', 'Service updated Sucessfull');
                 }else {
-                    $updateServices   =  DB::table('our_services')->where('id',$id)->first();
-                    $updateServices->title =  $request->title;
-                    $updateServices->description =  $request->description;
-                    $updateServices->order_no =  $request->order_no;
-                    $updateServices->save();
+               
+                    DB::table('our_services')->where('id',$id)->update([
+                     
+                        'title' =>   $request->title,
+                        'description' =>   $request->description,
+                        'order_no' =>   $request->order_no,
+                        ]);
                     return redirect()->route('view_our_services')->with('success', 'Service updated Sucessfull');
                 }
             }
