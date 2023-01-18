@@ -12,7 +12,7 @@ class ServicesConstoller extends Controller
     //
     public function view_services(){
 
-        $getOurservices['get_services'] = OurService::get();
+        $getOurservices['get_services'] = OurService::orderBy('order_no',"Asc")->get();
          return view('backend.ourservices.index',$getOurservices);
   
     }
@@ -77,15 +77,7 @@ class ServicesConstoller extends Controller
             }
 
             public function update_services(Request  $request, $id ){
-                $request->validate([
-                    'title' => 'required',
-                    'image' => 'required|image | mimes:jpeg,jpg,png,gif,svg|',
-                    'description' => 'required',
-                ]);
-        
-      
-          
-         
+
                 if($request->file('image')){
                     $getimg  = OurService::find($id);
                     $imagePath = public_path('assets/services/'. $getimg->image);
@@ -108,7 +100,7 @@ class ServicesConstoller extends Controller
                     $updateServices   =  OurService::find($id);
                     $updateServices->title =  $request->title;
                     $updateServices->description =  $request->description;
-                    $updateServices->order_no =  $request->tiorder_notle;
+                    $updateServices->order_no =  $request->order_no;
                     $updateServices->save();
                     return redirect()->route('view_our_services')->with('success', 'Service updated Sucessfull');
                 }

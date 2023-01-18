@@ -1,7 +1,5 @@
 <footer>
-
   @php
-    
     $getAddress=  DB::table('contact_addresses')->where('status',1)->first();
   @endphp
     <div class="footerSection">
@@ -55,10 +53,7 @@
                 <div class="col-md-4">
                   <div class="footerCol">
                     <h2>Contact Details</h2>
-                    <p class="text-white">
-                      {{$getAddress->address}}
-                      
-                     </p>
+                    <p class="text-white">{{$getAddress->address}}</p>
                   </div>
                 </div>
               </div>

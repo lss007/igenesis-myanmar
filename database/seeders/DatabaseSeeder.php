@@ -22,10 +22,17 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->call(SliderSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(SliderSeeder::class);
         $this->call(OurTeamSeeder::class);
+        $this->call(OurServiceSeeder::class);
+        $this->call(OurCustomersSeeder::class);
+        $this->call(ContactAddressSeeder::class);
 
+
+        
+
+        
         
       
     }

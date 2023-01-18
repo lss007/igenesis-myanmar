@@ -46,7 +46,7 @@
                 @if(count($get_services) > 0)
                 @foreach($get_services as $keys => $value)
                 <tr>
-                  <th scope="row" width="5%">{{$keys+1}}</th>
+                  <th scope="row" width="5%">{{$value->order_no}}</th>
                   <td width="20%"> {{Str::limit(	$value->title,20,$end='....')}}<br> 
                  </td>
                   <td width="25%">

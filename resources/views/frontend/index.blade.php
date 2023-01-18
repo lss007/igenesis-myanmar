@@ -6,8 +6,7 @@
 @include('frontend.body.slider')
 {{-- slider end  --}}
 @php
-      $get_coustomer = DB::table('our_customers')->where('status',1)
-            ->orderby('order_no','ASC')->get();
+
     
 @endphp
   <section>
@@ -175,7 +174,6 @@
                 </div>
               </div>
             @endif
-
             @endforeach
             @endif
        
@@ -216,7 +214,7 @@
                       </div>
                     </div>
                     <div class="vmContent">
-                      <p> {!! html_entity_decode($top_member->description)!!} </p>
+                      <p> {!! html_entity_decode($cards->description)!!} </p>
                       <div class="viewCol">
                         <a href="javascript:void(0);">
                           View
@@ -295,12 +293,11 @@
         <div class="pslogo cardSection" data-aos="fade-up" data-aos-duration="3000">
           <ul>
        
-@if(isset($get_coustomer ))
-
+        @if(isset($get_coustomer ))
            @foreach($get_coustomer as $logo)
               <li><a href="javascript:void(0);">
                 <img src="{{asset('assets/customers/'. $logo->image)}}" alt="..." title="{{$logo->order_no}}"></a></li>
-                @endforeach
+          @endforeach
         @endif
     
             {{-- <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo9.png')}}" alt="..."></a></li>

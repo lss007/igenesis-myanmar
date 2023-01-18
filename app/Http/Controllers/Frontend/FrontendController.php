@@ -20,49 +20,45 @@ class FrontendController extends Controller
 {
     //Home page 
     public function homepage(){
-
-        $outTeamData['get_our_team']  = OurTeam::where('status',1)->orderby('order_no')->get();
-        $getServices['get_Services'] = OurService::where('status',1)->orderby('order_no')->get();
-
-        
-        return view('frontend.index', [ $outTeamData,$getServices ]);
+        $get_our_team  = OurTeam::where('status',1)->orderby('order_no')->get();
+        $get_Services = OurService::where('status',1)->orderby('order_no')->get();
+        $get_coustomer = DB::table('our_customers')->where('status',1)
+        ->orderby('order_no','ASC')->get();
+        return view('frontend.index',compact('get_our_team','get_Services','get_coustomer'));
     }
     //about us 
     public function aboutUs(){
         return view('frontend.aboutus');
-
     }
     //our people 
     public function ourPeople(){
-        return view('frontend.ourpeople');
-
+        $getOurTeam  = OurTeam::where('status',1)->orderby('order_no')->get();
+        
+        return view('frontend.ourpeople',compact('getOurTeam'));
     }
     
     // services
     public function services(){
-        return view('frontend.services');
-
-
+        $getServices = OurService::where('status',1)->orderby('order_no')->get();
+        $getCoustomer = DB::table('our_customers')->where('status',1)
+        ->orderby('order_no','ASC')->get();
+        return view('frontend.services',compact('getServices','getCoustomer'));
     }
     // whatare
     public function whatare(){
         return view('frontend.whatarewe');
-
     }
     // lifeatgenesis
     public function lifeatGenesis(){
         return view('frontend.lifeatgenesis');
-
     }
     // Quality & health
     public function qualityHealth(){
         return view('frontend.qualitymanagementsystem');
-
     }
     // contactUs
     public function contactUs(){
         return view('frontend.contact');
-
     }
     // contactstore 
     public function storecontact( Request $request ){
@@ -70,7 +66,6 @@ class FrontendController extends Controller
         $request->validate([ 
         'name' =>'required',
         'email' =>'required|email',
-        // 'phone' =>'required|numeric',
         'subject'=>'required',
         'message'=>'required',
     ]);
@@ -82,13 +77,12 @@ class FrontendController extends Controller
                 $post_inq->subject =  $request->subject;
                 $post_inq->message =  $request->message;
                 $post_inq->save();
-               
                 $notification = array(
                 'message' => 'Thanks for Contact us ',
                 'alert-type' => 'success'
-    );
+                    );
 
-                    Mail::send('contact',
+            Mail::send('contact',
                  array(
                         'name' => $request->get('name'),
                         'email' => $request->get('email'),
@@ -102,9 +96,6 @@ class FrontendController extends Controller
 
                         }
                     );
-
-            
-
                  return redirect()->route('front.homepage')->with($notification); 
     }
     //    view blogs 
