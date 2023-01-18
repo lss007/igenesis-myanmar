@@ -57,9 +57,9 @@ class SliderController extends Controller
         $name_gen = hexdec(uniqid()).'.'.$slider_img->getClientOriginalExtension();
         Image::make($slider_img)->fit(1983,1019)->save(public_path('assets/slider/'.$name_gen));
         $save_url = 'assets/slider/'.$name_gen;
-    if(file_exists($old_image)){
-    unlink($old_image);  
-    }
+            if(file_exists($old_image)){
+            unlink($old_image);  
+            }
         $slider_data =   Slider::find($id);
         $slider_data->title = $request->title;
         $slider_data->description = $request->description;

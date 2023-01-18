@@ -29,7 +29,38 @@
           <div class="card-body">
             
               <h5 class="card-title">@yield('title')</h5>
-              <a href="{{route('add_contact_address')}}" class="btn btn-success rounded-pill">Add Address</a>
+
+              <button type="button" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Address</button>
+       
+    
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Add Address</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form  method="post" action="{{route('store_contact_address')}}" enctype="multipart/form-data"> 
+                        @csrf
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" name="address" placeholder="Contact footer address" id="address"  style="height: 200px;"></textarea>
+                                <label for="address">Footer Address </label>
+                            </div>
+                            @error('address')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Save  </button>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              </div>
             <!-- Table with stripped rows -->
             <table class="table datatable">
               <thead>

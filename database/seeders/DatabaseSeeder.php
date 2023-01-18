@@ -29,11 +29,5 @@ class DatabaseSeeder extends Seeder
         $this->call(OurCustomersSeeder::class);
         $this->call(ContactAddressSeeder::class);
 
-
-        
-
-        
-        
-      
     }
 }
