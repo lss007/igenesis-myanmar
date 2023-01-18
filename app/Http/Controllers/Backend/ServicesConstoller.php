@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\OurService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Image;
 class ServicesConstoller extends Controller
@@ -12,7 +13,7 @@ class ServicesConstoller extends Controller
     //
     public function view_services(){
 
-        $getOurservices['get_services'] = OurService::orderBy('order_no',"Asc")->get();
+        $getOurservices['get_services'] = DB::table('our_services')->orderBy('order_no',"Asc")->get();
          return view('backend.ourservices.index',$getOurservices);
   
     }
@@ -45,7 +46,7 @@ class ServicesConstoller extends Controller
 
              // active
             public function services_active($id){
-                $active  =  OurService::find($id);
+                $active  =   DB::table('our_services')->where('id',$id)->first();
                 $active->status = '1';
                 $active->save();
                 return  redirect()->back()->with('sucess', 'Service   Active');
