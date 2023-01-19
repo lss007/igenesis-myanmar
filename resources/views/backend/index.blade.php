@@ -52,14 +52,9 @@
 
               </div>
             </div><!-- End Sales Card -->
- 
-
-
             <!-- Revenue Card -->
             <div class="col-xxl-4 col-md-4">
               <div class="card info-card revenue-card">
-
-          
                 <div class="card-body">
                   <h5 class="card-title">Total  </h5>
 
@@ -85,12 +80,8 @@
                        {{-- approved  --}}
                        <div class="col-xxl-4 col-md-4">
                         <div class="card info-card sales-card">
-          
-                        
-          
                           <div class="card-body">
                             <h5 class="card-title">Approved  </h5>
-          
                             <div class="d-flex align-items-center">
                               <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                 <i class="bi bi-person"></i>
@@ -102,11 +93,9 @@
                                 <h6>
                                   {{count($approved)}} <span>| Post's</span>
                                 </h6>
-          
                               </div>
                             </div>
                           </div>
-          
                         </div>
                       </div><!-- End Sales Card -->
                       {{-- end approved  --}}
@@ -144,7 +133,6 @@
                         <th scope="col">time</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
-
                       </tr>
                     </thead>
                     <tbody>

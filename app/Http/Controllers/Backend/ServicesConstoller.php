@@ -34,18 +34,18 @@ class ServicesConstoller extends Controller
                     $imageName = hexdec(uniqid()).'.'.$service_img->getClientOriginalExtension();  
                     $service_img->move(public_path('assets/services/'), $imageName);
                 }
-                // $storeServices   = new OurService();
-                // $storeServices->image =  $imageName;
-                // $storeServices->title =  $request->title;
-                // $storeServices->description =  $request->description;
-                // $storeServices->order_no =  $request->order_no;
-                // $storeServices->save();
-           DB::table('our_services')->insert([
-                    'image' =>    $imageName ,
-                    'title' =>   $request->title,
-                    'description' =>   $request->description,
-                    'order_no' =>   $request->order_no,
-                    ]);
+                $storeServices   = new OurService();
+                $storeServices->image =  $imageName;
+                $storeServices->title =  $request->title;
+                $storeServices->description =  $request->description;
+                $storeServices->order_no =  $request->order_no;
+                $storeServices->save();
+        //    DB::table('our_services')->insert([
+        //             'image' =>    $imageName ,
+        //             'title' =>   $request->title,
+        //             'description' =>   $request->description,
+        //             'order_no' =>   $request->order_no,
+        //             ]);
     
                 return redirect()->route('view_our_services')->with('success', 'Service added Sucessfull');
 
