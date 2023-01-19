@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\EmailJob;
 use App\Models\BlogPost;
 use Illuminate\Http\Request;
 use App\Models\Contact;
@@ -68,39 +69,52 @@ class FrontendController extends Controller
     // contactstore 
     public function storecontact( Request $request ){
 
-        $request->validate([ 
-        'name' =>'required',
-        'email' =>'required|email',
-        'subject'=>'required',
-        'message'=>'required',
-    ]);
-// dd($request->all());
-                $post_inq = new Contact();
-                $post_inq->name =  $request->name;
+                $request->validate([ 
+                'name' =>'required|string',
+                'email' =>'required|email',
+                'subject'=>'required |string',
+                'msg'=>'required',
+                ],
+                    [
+                        'msg.required' => 'Message required',
+                    ]);
+                // dd($request->all());
+                // $post_inq = new Contact();
+                // $post_inq->name =  $request->name;
                 // $post_inq->phone =  $request->phone;
-                $post_inq->email =  $request->email;
-                $post_inq->subject =  $request->subject;
-                $post_inq->message =  $request->message;
-                $post_inq->save();
-                $notification = array(
-                'message' => 'Thanks for Contact us ',
-                'alert-type' => 'success'
-                    );
+                // $post_inq->email =  $request->email;
+                // $post_inq->subject =  $request->subject;
+                // $post_inq->message =  $request->message;
+                // $post_inq->save();
+        
+                     $emaildata =   Contact::create([
+                        'name'  =>  $request->name,
+                        'email' =>  $request->email,
+                        'subject' =>$request->subject,
+                        'message' =>    $request->msg,
+                         ]);
 
-            Mail::send('contact',
-                 array(
-                        'name' => $request->get('name'),
-                        'email' => $request->get('email'),
-                        'subject' => $request->get('subject'),
-                        'messages' => $request->get('message') ,
-                    ),
-                        function($message) use ($request){
-                        $message->from($request->email);
-                        $message->to('sb@genesismyanmar.com', $request->name)->subject($request->name);
+                         $notification = array(
+                            'message' => 'Thanks for Contact us ',
+                            'alert-type' => 'success' );
+                    dispatch(new EmailJob($emaildata));
+                        // Mail::send('contact',
+                        //      array(
+                        //             'name' => $request->get('name'),
+                        //             'email' => $request->get('email'),
+                        //             'subject' => $request->get('subject'),
+                        //             'messages' => $request->get('message') ,
+                        //         ),
+                        // function($message) use ($request){
+                        // $message->from($request->email);
+                        // working
+                        // $message->to('sb@genesismyanmar.com', $request->name)->subject($request->name);
+                       
+                       
                         // $message->to('lucky@byteforce.com', $request->name)->subject($request->name);
 
-                        }
-                    );
+                        // }
+                    // );
                  return redirect()->route('front.homepage')->with($notification); 
     }
     //    view blogs 

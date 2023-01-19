@@ -60,8 +60,8 @@
                             </div>
                             <div class="form-group">
                               <label class="formLabel">Message *</label>
-                              <textarea class="form-control" placeholder="Message" name="message"></textarea>
-                              @error('message')
+                              <textarea class="form-control" placeholder="Message" name="msg"></textarea>
+                              @error('msg')
                               <span class="text-danger"> {{$message}}</span>
                               @enderror
                             </div>
