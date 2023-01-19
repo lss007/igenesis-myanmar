@@ -67,23 +67,60 @@
                     <input type="checkbox" name="ids[]" value="{{$value->id}}" class='check_del'  >
                   </th>
                   <td width="10%"> {{$value->name}}
-                  <br>
-                  {{Carbon\Carbon::parse($value->created_at)->diffForHumans()}}
+          
+               
                   </td>
-                  <td width="10%"> {{$value->email}}</td>
-                  <td width="15%">{{$value->subject}}</td>
+                  <td width="10%">
+                    {!!str_limit($value->email, $limit=20 ) !!}
+                  </td>
+                  <td width="15%">
+                    {!!str_limit($value->subject, $limit=20 ) !!}
+                  </td>
                   <td width="30%">
                  
                     {{Str::limit(	$value->message,30,$end='....')}}
+               
+                    {{Carbon\Carbon::parse($value->created_at)->diffForHumans()}}
                   </td>
                   <td width="25%">
                     {{-- view Message --}}
-                    <a href="{{route('view.contact.messages',$value->id)}} " class="btn btn-primary">
-                        <i class="bi bi-eye"></i>
+
+                    <a  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#largeModal{{$value->id}}">
+                      <i class="bi bi-eye"></i>
                       </a>
+
+                      <div class="modal fade" id="largeModal{{$value->id}}" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title"> View Message</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <h5> Name:</h5>
+                                  <p> {!! isset($value->name) ? html_entity_decode($value->name) : ""!!}</p>
+                                  <h5> Email:</h5>
+                                  <p> {!! isset($value->email) ? html_entity_decode($value->email) : ""!!}</p>
+                                </div>
+                                <div class="col-md-6">
+                                  <h5> Subject:</h5>
+                                  <p> {!! isset($value->subject) ? html_entity_decode($value->subject) : ""!!}</p>
+                                <br>  
+                                Created At:
+                                {{Carbon\Carbon::parse($value->created_at)->diffForHumans()}}
+                                </div>
+                              </div>
+                                  <h5> Description:</h5>
+                                <p> {!! html_entity_decode($value->message)!!}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div><!-- End Large Modal-->
+
+             
                     {{-- view Message --}}
-
-
                       <a href="{{route('delete.contact.messages',$value->id)}}"   class="btn btn-primary">
                       <i class="bi bi-trash" ></i>
                     </a>
