@@ -32,11 +32,11 @@ class EmailJob implements ShouldQueue
     {
         $email = new Emailsend($this->emaildata);
 
-        // Mail::to('sb@genesismyanmar.com')->send($email);
+       
         Mail::to('hpalss007@gmail.com')->send($email);
 
         
-        // Mail::to('info@genesismyanmar.com')->send($email);
+   
 
         
     }
