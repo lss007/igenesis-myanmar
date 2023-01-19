@@ -102,13 +102,18 @@ class ContactController extends Controller
 
                     public function allmessagesDelete(Request $request ){
                         $ids = $request->get('ids');
-            
+                     if(isset( $ids)){
                         // dd($ids);
-                        foreach($ids as $val){
-                            Contact::find($val)->delete();
-                              
-                        }
+                            foreach($ids as $val){
+                                Contact::find($val)->delete();
+                                
+                            }
                         return redirect()->back()->with('error' ,'Data deleted success');
+                    }
+                    else{
+                        return redirect()->back()->with('info' ,'Please select first');
+
+                    }
                 }
 
 }
