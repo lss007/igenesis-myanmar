@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\ContactAddress;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
@@ -95,5 +96,19 @@ class ContactController extends Controller
                         return redirect()->route('view_contact_address')->with('info', 'Address Updated Sucessfull');
         
                     }
+
+
+                    // allmessagesDelete
+
+                    public function allmessagesDelete(Request $request ){
+                        $ids = $request->get('ids');
+            
+                        // dd($ids);
+                        foreach($ids as $val){
+                            Contact::find($val)->delete();
+                              
+                        }
+                        return redirect()->back()->with('error' ,'Data deleted success');
+                }
 
 }

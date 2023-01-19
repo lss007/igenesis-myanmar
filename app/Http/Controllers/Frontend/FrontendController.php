@@ -110,8 +110,6 @@ class FrontendController extends Controller
                         // $message->from($request->email);
                         // working
                         // $message->to('sb@genesismyanmar.com', $request->name)->subject($request->name);
-                       
-                       
                         // $message->to('lucky@byteforce.com', $request->name)->subject($request->name);
 
                         // }

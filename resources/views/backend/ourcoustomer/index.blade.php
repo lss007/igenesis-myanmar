@@ -56,7 +56,9 @@
                 <input type='checkbox'  id='select_all' onclick="selectAll()"> Select All 
                 @foreach($get_coustomer as $post)
                     <tr class="row1" data-id="{{ $post->id }}">
-                      <td class="pl-3"><i class="fa fa-sort"></i> {{ $post->order_no}} <input type="checkbox" name="ids[]" value="{{$post->id}}" class='check_del'></td>
+                      <td class="pl-3"><i class="fa fa-sort"></i> {{ $post->order_no}} 
+                        <input type="checkbox" name="ids[]" value="{{$post->id}}" class='check_del'>
+                      </td>
                
                       <td width="20%" class=" text-center">
                         <img src="{{(isset($post->image)) 

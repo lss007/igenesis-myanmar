@@ -165,12 +165,10 @@ Route::prefix('contact')->group(function(){
         Route::post('/update/{id}','update_address')->name('update_contact_address');
 
         Route::get('/delete/{id}','address_delete')->name('contact_address_delete');
-
-
-        
-        
-
+ 
 });
+
+Route::DELETE('/delete_all-messages', [ContactController::class, 'allmessagesDelete'])->name('all.delete.messages');
 });
 
 //===================== Blog post by admin routes start =====================
