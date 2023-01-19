@@ -154,8 +154,6 @@
                         <td>{{$values->user->name}}</td>
                         <td><a href="#" class="text-primary">
                           {{-- {{Str::limit(	$values->summary,200,$end='....')}} --}}
-
-
                           {!!html_entity_decode(str_limit($values->summary, $limit=200 ) )!!}
                         </a></td>
                         <td><img src="{{asset($values->image)}}" alt="{{$values->image}}" width="100"></td>

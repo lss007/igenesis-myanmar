@@ -13,7 +13,7 @@ class ServicesConstoller extends Controller
     //
     public function view_services(){
 
-        $getOurservices['get_services'] = DB::table('our_services')->orderBy('order_no',"Asc")->get();
+        $getOurservices['get_services'] = OurService::orderBy('order_no',"Asc")->get();
          return view('backend.ourservices.index',$getOurservices);
   
     }
