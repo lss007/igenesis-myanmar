@@ -15,19 +15,11 @@ class EmailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     public $emaildata;
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
+    
     public function __construct($emaildata)
     {
-        $this->emaildata = $emaildata;
-       
-     
+        $this->emaildata = $emaildata; 
 }
-
-
     public function handle()
     {
         $email = new Emailsend($this->emaildata);

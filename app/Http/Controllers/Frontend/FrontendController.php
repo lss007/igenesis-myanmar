@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\EmailJob;
+use App\Mail\Confirmmail;
 use App\Models\BlogPost;
 use Illuminate\Http\Request;
 use App\Models\Contact;
@@ -115,7 +116,18 @@ class FrontendController extends Controller
 
                         // }
                     // );
+                    $this->send_confirmation_mail($request);
                  return redirect()->route('front.homepage')->with($notification); 
+    }
+
+    public function send_confirmation_mail($request){
+
+        $to = $request->email;
+        $confirm['name'] = $request->name;
+        $confirm['subject'] ='Automated Reply from genesismyanmar';
+        $confirm['msg'] = 'Thank you for reaching out to genesismyanmar. We have received your enquiry and will be in touch shortly';
+   
+        Mail::to( $to)->send(new Confirmmail($confirm));
     }
     //    view blogs 
     public function viewBlog(){
