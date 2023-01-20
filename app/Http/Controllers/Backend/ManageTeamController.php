@@ -80,6 +80,7 @@ class ManageTeamController extends Controller
         }
 
     public function update_team(Request $request, $id){
+
             if($request->file('image')){
 
                 $getimg  = OurTeam::find($id);

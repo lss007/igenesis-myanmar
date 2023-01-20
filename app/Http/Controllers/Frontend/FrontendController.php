@@ -22,14 +22,17 @@ class FrontendController extends Controller
 {
     //Home page 
     public function homepage(){
-        $get_our_team  = OurTeam::where('status',1)->orderby('order_no')->get();
+        $get_our_team  = OurTeam::where('status',1)->orderby('order_no')->whereIn('order_no',[1,2])->take(10)->get();
+
+        $get_our_team2  = OurTeam::where('status',1)->orderby('order_no','Asc')->skip(2)->take(10)->get();
+
         // $get_Services = OurService::where('status',1)->orderby('order_no')->get();
         
         $get_Services = DB::table('our_services')->where('status',1)
         ->orderby('order_no','ASC')->get();
         $get_coustomer = DB::table('our_customers')->where('status',1)
         ->orderby('order_no','ASC')->get();
-        return view('frontend.index',compact('get_our_team','get_Services','get_coustomer'));
+        return view('frontend.index',compact('get_our_team','get_Services','get_coustomer','get_our_team2'));
     }
     //about us 
     public function aboutUs(){

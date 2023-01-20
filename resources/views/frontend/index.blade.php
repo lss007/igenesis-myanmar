@@ -173,6 +173,8 @@
                   </div>
                 </div>
               </div>
+              @else
+              
             @endif
             @endforeach
             @endif
@@ -188,8 +190,8 @@
     <div class="sectionSpace testimonialSec">
       <div class="container">
         <div class="row g-md-5">
-            @if(isset($get_our_team ))
-              @foreach($get_our_team->slice(2) as $cards)
+            @if(isset($get_our_team2 ))
+              @foreach($get_our_team2 as $cards)
                 <div class="col-md-6">
                   <div class="cardStyle1" data-aos="fade-right" data-aos-duration="3000">
                     <div class="csUserCol">
@@ -300,16 +302,7 @@
           @endforeach
         @endif
     
-            {{-- <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo9.png')}}" alt="..."></a></li>
-            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo10.jpg')}}" alt="..."></a></li>
-            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo11.png')}}" alt="..."></a></li>
-            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo12.png')}}" alt="..."></a></li>
-            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo13.png')}}" alt="..."></a></li>
-            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo2.png')}}" alt="..."></a></li>
-            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo3.png')}}" alt="..."></a></li>
-            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo4.png')}}" alt="..."></a></li>
-            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo5.jpg')}}" alt="..."></a></li>            
-            <li><a href="javascript:void(0);"><img src="{{asset('assets/images/customers-logo8.png')}}" alt="..."></a></li> --}}
+         
           </ul>
         </div>
       </div>

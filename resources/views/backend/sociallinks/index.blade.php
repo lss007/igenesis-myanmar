@@ -107,7 +107,8 @@
                         </span>
                       </td>
                       <td width="20%">
-                        <img src="{{asset('assets/sociallogo/'.$value->logo)}}" alt="{{$value->title}}"   style="width : 30px ;height: auto; background:black;">
+                        <img src="{{asset('assets/sociallogo/'.$value->logo)}}" alt="{{$value->title}}"  
+                         style="width : 30px ;height: auto; background:black;">
                     </td>
                       <td width="5%">
                         @if($value->status == '1')

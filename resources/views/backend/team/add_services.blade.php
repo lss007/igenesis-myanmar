@@ -8,6 +8,8 @@
 
     <section class="section dashboard">
         <div class="row">
+          <h4 ><a href="{{route('view_our_team')}}" class="btn btn-success" >Back</a></h4>
+
             <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Add Services</h5>

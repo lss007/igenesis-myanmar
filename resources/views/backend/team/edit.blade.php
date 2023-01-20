@@ -7,10 +7,12 @@
     <!-- End Page Title -->
 
     <section class="section dashboard">
-        <div class="row">
+      <div class="row">
+          <h4 ><a href="{{route('view_our_team')}}" class="btn btn-success" >Back</a></h4>
             <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Edit services </h5>
+
     
                   <!-- Floating Labels Form -->
                   <form class="row g-3"  action="{{route('update_our_team',$edit_our_team->id)}}" enctype="multipart/form-data" method="post">

@@ -6,11 +6,13 @@
 
 <section class="section">
     <div class="row">
+      <h4 style="float: right"><a href="{{route('admin.homeslider')}}" class="btn btn-success" >Back</a></h4>
 <div class="col-lg-10">
-
+  
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Manage Slider </h5>
+
         <!-- Vertical Form -->
         <form class="row g-3" method="post" action="{{route('admin.update.slider',$edit_slider->id)}}" enctype="multipart/form-data"> 
             @csrf

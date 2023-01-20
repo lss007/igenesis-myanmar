@@ -39,7 +39,7 @@
                 <table class="table datatable">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
+                      <th scope="col">S.No</th>
                       <th scope="col">Name</th>
                       <th scope="col">Description</th>
                       <th scope="col">image</th>
@@ -52,7 +52,7 @@
                     @if(count($ourTeam) > 0)
                     @foreach($ourTeam as $keys => $value)
                     <tr>
-                      <th scope="row" width="5%">{{$keys+1}}</th>
+                      <th scope="row" width="5%">{{$value->order_no}}</th>
                       <td width="20%"> {{Str::limit(	$value->name,20,$end='....')}}<br> 
                      </td>
                       <td width="25%">
