@@ -22,7 +22,7 @@ class FrontendController extends Controller
 {
     //Home page 
     public function homepage(){
-        $get_our_team  = OurTeam::where('status',1)->orderby('order_no')->whereIn('order_no',[1,2])->take(10)->get();
+        // $get_our_team  = OurTeam::where('status',1)->orderby('order_no')->whereIn('order_no',[1,2])->take(10)->get();
 
         $get_our_team2  = OurTeam::where('status',1)->orderby('order_no','Asc')->skip(2)->take(10)->get();
 
