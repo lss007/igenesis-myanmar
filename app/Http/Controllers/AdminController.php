@@ -154,7 +154,7 @@ class AdminController extends Controller
                 return redirect()->route('admin.logout');
             }else{
         
-                return redirect()->back();
+                return redirect()->back()->with('error','Old password is not matched');
             }
         
         }

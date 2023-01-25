@@ -11,7 +11,14 @@
   <section class="section">
     <div class="row">
       <div class="col-lg-10">
-
+        @if(session('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{session('error')}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @else
+        
+          @endif
         <form method="post" action="{{route('update.admin.password')}}" >
             @csrf
     
