@@ -26,8 +26,6 @@
         </div>
         @endif
         <div class="card">
-      
-
         <div class="card">
           <div class="card-body">
             
@@ -61,18 +59,13 @@
                       </td>
                
                       <td width="20%" class=" text-center">
-                        <img src="{{(isset($post->image)) 
-                        ? asset('assets/customers/'.$post->image) :asset('no_image.jpg')}}" 
-                        alt="{{$post->title}}" style=" width: 50px;">
-
+                        <img src="{{(isset($post->image))? asset('assets/customers/'.$post->image) :asset('no_image.jpg')}}"  alt="{{$post->title}}" style=" width: 50px;">
                       </td>
                       <td>{{ date('d-m-Y h:m:s',strtotime($post->created_at)) }}</td>
                       <td width="5%">
                         @if($post->status == '1')
                    
-                      
-                        <a href="{{route('our_inactive_customers',$post->id)}}">
-                       
+                      <a href="{{route('our_inactive_customers',$post->id)}}">
                         <span class="badge bg-success">Active</span>
                       </a>
                       @else

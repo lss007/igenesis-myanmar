@@ -2,15 +2,13 @@
 @section('title', 'Add Our Coustomer')
 @section('content')
 <style>
-    .gallery > img{
+  .gallery > img{
   display:inline-block;
   margin-left:5px;
 }
 </style>
 @include('backend.body.breadcrumb')
-
     <!-- End Page Title -->
-
     <section class="section dashboard">
         <div class="row">
             <div class="card">
