@@ -54,7 +54,9 @@
                   </th>
                   <td width="20%">{{$resumes->email}} </td>
                   <td width="30%">
-                      <a href="{{asset($resumes->resumeFile)}}" download="">
+                      <a href="{{asset('storage/resume').'/'.$resumes->resumeFile}}" download="">
+           
+                      
                         <img src="{{asset('assets/icons/pdf.png')}}" alt="">
                         Resume
                     </a>
