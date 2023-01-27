@@ -109,14 +109,31 @@
           
           </li>
         </ul>
-      </li><!-- End Contact Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('admin.manageResume')}}">
-          <i class="bi bi-card-image"></i>
-          <span>View Resumes </span>
-        </a>
       </li>
+      <!-- End Contact Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#Resume-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-bar-chart"></i><span>Resume</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="Resume-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+ 
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('admin.manageResume')}}">
+       
+              <span>View Resumes</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('view_current_industries')}}">
+       
+              <span>Current industries</span>
+            </a>
+          </li>
+  
+        </ul>
+      </li>
+
 
     </ul>
 

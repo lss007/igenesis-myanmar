@@ -272,6 +272,23 @@ Route::DELETE('/delete_all-messages', [ContactController::class, 'allmessagesDel
         });
 
     });
+
+
+    // industries 
+    Route::prefix('Current-industries')->group(function(){
+        Route::controller(ManageCvController::class)->group(function () {
+            Route::get('/view','view_industries')->name('view_current_industries');
+            Route::post('/store','store_industries')->name('store_current_industries');
+
+            Route::get('/approved/{id}','active')->name('approved.industries');
+            // approvedpost  
+            Route::get('/rejected/{id}','inactive')->name('rejected.industries');
+            Route::get('/delete/{id}','delete_industries')->name('delete_industries');
+            Route::get('/edit/{id}','update_industries')->name('update_current_industries');
+            // Route::post('/update/{id}','update_link')->name('update_social_link');
+        });
+
+    });
 // ========== admin prefix ===========
     });
 // ==========admin prefix ===========
