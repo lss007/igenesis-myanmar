@@ -39,15 +39,25 @@ public function updateAdminProfile(Request $request ){
             }
             $publishPost->profile_photo_path =  $save_url;
             $publishPost->save();
-         
-          }
-            $getProfile =  auth()->guard('admin')->user();
-            $publishPost = Admin::find($getProfile->id);
-            $publishPost->name =  $request->name;
-            $publishPost->email =  $request->email;
-     
-            $publishPost->save();
             return  redirect()->route('admin.editAdminProfile')->with('sucess', 'Profile updated Sucessfull');
+          }else {
+              $getProfile =  auth()->guard('admin')->user();
+              $publishPost = Admin::find($getProfile->id);
+              $publishPost->name =  $request->name;
+              $publishPost->email =  $request->email;
+              
+              $publishPost->company =  $request->company;
+              $publishPost->job =  $request->job;
+              $publishPost->country =  $request->country;
+              $publishPost->address =  $request->address;
+              $publishPost->phone =  $request->phone;
+              $publishPost->twitter =  $request->twitter;
+              $publishPost->facebook =  $request->facebook;
+              $publishPost->instagram =  $request->instagram;
+              $publishPost->linkedin =  $request->linkedin;
+              $publishPost->save();
+              return  redirect()->route('admin.editAdminProfile')->with('sucess', 'Profile updated Sucessfull');
+            }
           
     }
 }
