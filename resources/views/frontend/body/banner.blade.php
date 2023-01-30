@@ -1,6 +1,6 @@
 
 @php
-  $get_banner=  DB::table('all_Banners')->where('status',1)->first();
+  $get_banner=  DB::table('all_banners')->where('status',1)->first();
 @endphp
 
     <section>
