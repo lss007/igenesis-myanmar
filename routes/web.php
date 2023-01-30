@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminPasswordController;
+use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\CategoryController;
-
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\CustomersConstroller;
 use App\Http\Controllers\Backend\ProfileController;
@@ -303,6 +303,19 @@ Route::DELETE('/delete_all-messages', [ContactController::class, 'allmessagesDel
 
     });
 
+
+    // Banner
+    Route::prefix('Manage-banner')->group(function(){
+        Route::controller(BannerController::class)->group(function () {
+            Route::get('/view','view_banner')->name('view_all_banner');
+            Route::post('/store','store_banner')->name('store_all_banner');
+            Route::get('/edit/{id}','edit_banner')->name('edit.banner'); 
+            Route::post('/update/{id}','update_banner')->name('update_all_banner');
+            Route::get('/active/{id}','active_banner')->name('active.banner'); 
+            Route::get('/inactive/{id}','inactive_banner')->name('inactive.banner');
+            Route::get('/delete/{id}','delete_banner')->name('delete_banner');
+        });
+    });
 // ========== admin prefix ===========
     });
 // ==========admin prefix ===========

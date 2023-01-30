@@ -27,7 +27,6 @@
         <ul id="Home-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li class="nav-item">
             <a class="nav-link collapsed" href="{{route('admin.homeslider')}}">
-
               <span>Manage slider</span>
             </a>
           
@@ -35,22 +34,25 @@
         
           <li class="nav-item">
             <a class="nav-link collapsed" href="{{route('view_our_team')}}">
-          
               <span>Manage Our Team  </span>
             </a>
           </li>
     
           <li class="nav-item">
             <a class="nav-link collapsed" href="{{route('view_our_services')}}">
-     
               <span>Manage Our Services </span>
             </a>
           </li>
           
           <li class="nav-item">
             <a class="nav-link collapsed" href="{{route('view_our_customer')}}">
-   
               <span>Manage Our Customer </span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('view_all_banner')}}">
+              <span>Manage All Banner  </span>
             </a>
           </li>
    
@@ -65,14 +67,12 @@
 
           <li class="nav-item">
             <a class="nav-link collapsed" href="{{route('view.blog.category')}}">
-           
               <span>Add Blog Category</span>
             </a>
           </li>
           <!-- End Profile Page Nav -->
           <li class="nav-item">
             <a class="nav-link collapsed" href="{{route('admin.view.myblog')}}">
-      
               <span>View Blogs </span>
             </a>
           </li>
@@ -121,7 +121,6 @@
               <span>View Resumes</span>
             </a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link collapsed" href="{{route('view_current_industries')}}">
               <span>Current industries</span>
