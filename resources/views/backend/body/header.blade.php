@@ -181,32 +181,18 @@
               <hr class="dropdown-divider">
             </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="{{route('admin.editAdminProfile')}}">
-                <i class="bi bi-person"></i>
-                <span>Edit Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
 
-            {{-- <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+             <li>
+              <a class="dropdown-item d-flex align-items-center" href="{{route('admin.editAdminProfile')}}">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
               </a>
             </li>
             <li>
               <hr class="dropdown-divider">
-            </li> --}}
+            </li> 
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="{{route('admin.change.password')}}">
-                <i class="bi bi-question-circle"></i>
-                <span>Change Password </span>
-              </a>
-            </li>
+
             <li>
               <hr class="dropdown-divider">
             </li>

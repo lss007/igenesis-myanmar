@@ -147,8 +147,8 @@ class AdminController extends Controller
             if (Hash::check($request->oldpassword,$hashedpassword)) {
                 $admin = Admin::find($getpassword->id);
                 $admin->password = Hash::make($request->password);
-                $admin->name = $request->name;
-                $admin->email = $request->email;
+                // $admin->name = $request->name;
+                // $admin->email = $request->email;
                 $admin->save();
                 Auth::logout();
                 return redirect()->route('admin.logout');
