@@ -6,7 +6,9 @@
     <section>
         <div class="bannerSection">
           <div class="bannerSlider">
-            <div class="bannerInner innerBanner" style="background-image: url('{{asset('assets/banner/'.$get_banner->image) }}')">
+         
+            <div class="bannerInner innerBanner" style="background-image: url('{{(isset($get_banner->image)) 
+                    ? asset('assets/banner/'.$get_banner->image)  :asset('no_image.jpg')}}')">
               <div class="container">
                 <div class="bannerContent" data-aos="fade-up" data-aos-duration="3000">
                   <h1>@yield('title')</h1>
