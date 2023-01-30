@@ -14,7 +14,7 @@
             <div class="col-lg-4">
               <div class="footerCol">
                 <div class="footerLogo">
-                  <a href="index.html"><img src="{{asset('assets/images/logo.svg')}}" alt="..."></a>
+                  <a href="{{url('/')}}"><img src="{{asset('assets/images/logo.svg')}}" alt="..."></a>
                 </div>
                  <div class="socialLinks d-none d-lg-block">
                   <ul>
