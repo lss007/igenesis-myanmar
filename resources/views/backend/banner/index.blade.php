@@ -78,7 +78,7 @@
                  </td>
                   <td width="20%" class="text-center">
                     <img src="{{(isset($value->image))   ? asset('assets/banner/'.$value->image) :asset('no_image.jpg')}}" 
-                    alt="{{$value->title}}" style=" width: 50px;">
+                    alt="{{$value->title}}" style=" width: 200px;">
                   </td>
                   <td width="5%">
                     @if($value->status == '1')
