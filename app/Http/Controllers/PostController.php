@@ -9,12 +9,14 @@ use Carbon\Carbon;
 use Image;
 use Auth;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
+
 class PostController extends Controller
 {
 
 
   public function Logout(){
-  Auth::logout();
+  FacadesAuth::logout();
   return redirect()->route('login')->with('success','User logout successfully');
   }
 }

@@ -84,12 +84,15 @@
                               <div class="form-group">
                                 <label class="formLabel"> Current Industry </label>
                                 <select class="form-control" required="" name="current_industry">
-                                    <option value="" selected="">Current Industry</option>
-                                    <option value="Advertising">Advertising</option>
-                                    <option value="Agriculture">Agriculture</option>
-                                    <option value="Chemicals">Chemicals</option>
-                                    <option value="Construction">Construction</option>
-                                    <option value="Consumer Durables">Consumer Durables</option>
+                                <option value="" selected="">Current Industry</option>
+                                @if($getIndustry)
+                                  @foreach($getIndustry as $value)
+                                  <option value="{{$value->name}}">{{Ucwords($value->name)}}</option>
+                                  @endforeach
+                                @else
+
+                                @endif
+
                                 </select>
                                 @error('current_industry')
                                 <span class="text-danger"> {{$message}}</span>
@@ -100,12 +103,14 @@
                               <div class="form-group">
                                 <label class="formLabel">Current function</label>
                                 <select class="form-control" required="" name="current_function">
-                                    <option value="" selected="">Current function</option>
-                                    <option value="Accounts / Finance">Accounts / Finance</option>
-                                    <option value="Administration">Administration</option>
-                                    <option value="Commercial">Commercial</option>
-                                    <option value="Consulting">Consulting</option>
-                                    <option value="Content Development / Writing">Content Development / Writing</option>
+                                      <option value="" selected="">Current function</option>
+                                @if($getFunction)
+                                      @foreach($getFunction as $value)
+                                        <option value="{{$value->name}}">{{Ucwords($value->name)}}</option>
+                                      @endforeach
+                                @else
+                                
+                                @endif
                                 </select>
                                 @error('current_function')
                                 <span class="text-danger"> {{$message}}</span>
@@ -140,3 +145,5 @@
         </div>
       </section>
       @endsection
+
+

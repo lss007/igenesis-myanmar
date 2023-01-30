@@ -116,18 +116,20 @@
           <i class="bi bi-bar-chart"></i><span>Resume</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="Resume-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
- 
           <li class="nav-item">
             <a class="nav-link collapsed" href="{{route('admin.manageResume')}}">
-       
               <span>View Resumes</span>
             </a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link collapsed" href="{{route('view_current_industries')}}">
-       
               <span>Current industries</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('view_current_function')}}">
+              <span>Current function</span>
             </a>
           </li>
   

@@ -279,16 +279,32 @@ Route::DELETE('/delete_all-messages', [ContactController::class, 'allmessagesDel
         Route::controller(ManageCvController::class)->group(function () {
             Route::get('/view','view_industries')->name('view_current_industries');
             Route::post('/store','store_industries')->name('store_current_industries');
-
-            Route::get('/approved/{id}','active')->name('approved.industries');
-            // approvedpost  
-            Route::get('/rejected/{id}','inactive')->name('rejected.industries');
+            Route::get('/active/{id}','active')->name('approved.industries');
+            Route::get('/inactive/{id}','inactive')->name('rejected.industries');
             Route::get('/delete/{id}','delete_industries')->name('delete_industries');
-            Route::get('/edit/{id}','update_industries')->name('update_current_industries');
+            Route::get('/update/{id}','update_industries')->name('update_current_industries');
             // Route::post('/update/{id}','update_link')->name('update_social_link');
         });
 
     });
+
+// ========================== Curunt Function =========================
+
+    // industries 
+    Route::prefix('Current-function')->group(function(){
+        Route::controller(ManageCvController::class)->group(function () {
+            Route::get('/view','view_function')->name('view_current_function');
+            Route::post('/store','store_function')->name('store_current_function');
+            Route::get('/active/{id}','active_Function')->name('active.function'); 
+            Route::get('/inactive/{id}','inactive_Function')->name('inactive.function');
+            Route::get('/delete/{id}','delete_function')->name('delete_function');
+            Route::get('/update/{id}','update_function')->name('update_current_function');
+            
+            // Route::post('/update/{id}','update_link')->name('update_current_function');
+        });
+
+    });
+
 // ========== admin prefix ===========
     });
 // ==========admin prefix ===========

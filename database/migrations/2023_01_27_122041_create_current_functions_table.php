@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('current_functions', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('order_no')->nullable();
+            $table->integer('status')->default(1)->nullable();
             $table->timestamps();
         });
     }
