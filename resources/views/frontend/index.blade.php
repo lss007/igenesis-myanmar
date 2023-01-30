@@ -2,14 +2,13 @@
 @section('title', 'Home')
 @section('content')
 
-{{-- slider start --}}
-@include('frontend.body.slider')
-{{-- slider end  --}}
-@php
 
-    
+@include('frontend.body.slider')
+
+@php    
 @endphp
-  <section>
+  
+<section>
     <div class="sectionSpace" id="whoarewe">
       <div class="container">
         <div class="titleCol text-center" data-aos="fade-up" data-aos-duration="3000">
@@ -227,8 +226,6 @@
                 </div>
               @endforeach
             @endif
-
-
         </div>
       </div>
       <div class="zigzagShape">
@@ -301,8 +298,6 @@
                 <img src="{{asset('assets/customers/'. $logo->image)}}" alt="..." title="{{$logo->order_no}}"></a></li>
           @endforeach
         @endif
-    
-         
           </ul>
         </div>
       </div>

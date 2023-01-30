@@ -283,7 +283,7 @@ Route::DELETE('/delete_all-messages', [ContactController::class, 'allmessagesDel
             Route::get('/inactive/{id}','inactive')->name('rejected.industries');
             Route::get('/delete/{id}','delete_industries')->name('delete_industries');
             Route::get('/update/{id}','update_industries')->name('update_current_industries');
-            // Route::post('/update/{id}','update_link')->name('update_social_link');
+           
         });
 
     });
@@ -299,8 +299,6 @@ Route::DELETE('/delete_all-messages', [ContactController::class, 'allmessagesDel
             Route::get('/inactive/{id}','inactive_Function')->name('inactive.function');
             Route::get('/delete/{id}','delete_function')->name('delete_function');
             Route::get('/update/{id}','update_function')->name('update_current_function');
-            
-            // Route::post('/update/{id}','update_link')->name('update_current_function');
         });
 
     });
